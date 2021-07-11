@@ -5,10 +5,11 @@ Created By Aunt Htoo Aung on 11/07/2021.
  **/
 object RemoteConstants {
 
-  const val SHEET_BASE_URL="https://docs.google.com/spreadsheets/d/1JdAUJlnMznWOQzJYuXB_c67BXjb0X_muxr5tZ0elrcQ/"
+  const val SHEET_BASE_URL =
+    "https://docs.google.com/spreadsheets/d/1JdAUJlnMznWOQzJYuXB_c67BXjb0X_muxr5tZ0elrcQ/"
 
   //service sheet constants
-  const val services = "Services"
+  const val servicesSheet = "Services"
 
   //column
   const val service = "service"
@@ -25,8 +26,13 @@ object RemoteConstants {
   const val township = "township"
   const val stateRegionMM = "state_region_mm"
   const val stateRegion = "state_region"
-  const val latLong="LatLong"
-  const val remark="remark"
-  const val url="url"
-  const val serviceIfOthers="service_if_others"
+  const val latLong = "LatLong"
+  const val remark = "remark"
+  const val url = "url"
+  const val serviceIfOthers = "service_if_others"
+
+  //service type sheet constants
+  const val serviceTypeSheet = "Validation"
+  //column
+  const val services = "Services"
 }

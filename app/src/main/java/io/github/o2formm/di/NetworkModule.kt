@@ -40,7 +40,7 @@ fun createRetrosheetInterceptor(): RetrosheetInterceptor {
     builder.setLogging(false)
 
   builder.addSheet(
-    RemoteConstants.services, // sheet name
+    RemoteConstants.servicesSheet, // services sheet name
     RemoteConstants.service,
     RemoteConstants.name,
     RemoteConstants.nameMM,
@@ -59,6 +59,12 @@ fun createRetrosheetInterceptor(): RetrosheetInterceptor {
     RemoteConstants.remark,
     RemoteConstants.url,
     RemoteConstants.serviceIfOthers
+  )
+
+
+  builder.addSheet(
+    RemoteConstants.serviceTypeSheet,//services type sheet name
+    RemoteConstants.services
   )
 
   return builder.build()

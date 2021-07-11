@@ -2,9 +2,12 @@ package io.github.o2formm.data.cache.source
 
 import io.github.o2formm.O2ForMMDb
 import io.github.o2formm.data.cache.mapper.ServicesTableMapper
+import io.github.o2formm.data.cache.mapper.ServicesTypeTableMapper
 import io.github.o2formm.data.common.repository.sheet.cache.ServiceSheetCacheSource
 import io.github.o2formm.data.remote.entity.ServiceRemoteEntity
+import io.github.o2formm.data.remote.entity.ServiceTypeRemoteEntity
 import io.github.o2formm.domain.sheet.model.Service
+import io.github.o2formm.domain.sheet.model.ServiceType
 
 /**
 Created By Aunt Htoo Aung on 11/07/2021.
@@ -51,5 +54,22 @@ class ServiceSheetCacheSourceImpl constructor(private val database: O2ForMMDb) :
 
   override suspend fun deleteAllServices() {
     database.servicesQueries.deleteAll()
+  }
+
+  override suspend fun insertOrReplaceServiceType(list: List<ServiceTypeRemoteEntity>) {
+    database.transaction {
+      list.forEach {
+        database.servicesTypeQueries.insertOrReplace(type = it.type)
+      }
+    }
+  }
+
+  override suspend fun getAllServicesType(): List<ServiceType> {
+    return database.servicesTypeQueries.selectAll().executeAsList()
+      .map(ServicesTypeTableMapper::map)
+  }
+
+  override suspend fun deleteAllServicesType() {
+    database.servicesTypeQueries.deleteAll()
   }
 }

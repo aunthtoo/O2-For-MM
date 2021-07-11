@@ -15,13 +15,18 @@ class ServiceSheetRepositoryImpl constructor(
 ) :
   ServiceSheetRepository {
 
-  override suspend fun getAllServicesAndInsertToLocal() {
+  override suspend fun getAllDataSheetAndInsertToLocal() {
+    //service
     val services = serviceSheetRemoteSource.getAllServices()
-
     //delete all service from local before inserting
     serviceSheetCacheSource.deleteAllServices()
-
     serviceSheetCacheSource.insertOrReplaceService(services)
+
+    //service type
+    val servicesType = serviceSheetRemoteSource.getAllServicesType()
+    //delete all service type from local before inserting
+    serviceSheetCacheSource.deleteAllServicesType()
+    serviceSheetCacheSource.insertOrReplaceServiceType(servicesType)
   }
 
   override suspend fun getAllServicesFromLocal(): List<Service> {

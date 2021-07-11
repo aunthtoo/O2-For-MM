@@ -7,7 +7,7 @@ Created By Aunt Htoo Aung on 11/07/2021.
  **/
 interface ServiceSheetRepository {
 
-  suspend fun getAllServicesAndInsertToLocal()
+  suspend fun getAllDataSheetAndInsertToLocal()
 
   suspend fun getAllServicesFromLocal(): List<Service>
 }
