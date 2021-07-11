@@ -56,7 +56,8 @@ class OxygenDetailActivity : BaseActivity<ActivityOxygenDetailBinding>() {
 
   private fun setUpPhoneRecyclerView() {
     binding.rvPhones.apply {
-     adapter = phoneListAdapter
+      isNestedScrollingEnabled = false
+      adapter = phoneListAdapter
       layoutManager = LinearLayoutManager(this@OxygenDetailActivity, RecyclerView.VERTICAL, false)
     }
   }
@@ -77,6 +78,8 @@ class OxygenDetailActivity : BaseActivity<ActivityOxygenDetailBinding>() {
         val data = viewState.value
 
         showShortToast("here ${data.name}")
+
+       // supportActionBar?.title = data.name
 
         binding.apply {
           tvName.text = data.name

@@ -8,5 +8,9 @@
   <string name="filter_by_town">Filter by township</string>
   <string name="about">About</string>
 
+  <string name="name">Name</string>
+  <string name="address">Address</string>
+  <string name="township">Township</string>
+  <string name="state_or_region">State Or Region</string>
   <string name="contact">Contact</string>
 </resources>

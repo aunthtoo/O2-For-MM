@@ -69,13 +69,26 @@ class OxygenViewModel constructor(private val getServicesByType: GetServicesByTy
         Timber.e("empty")
       } else {
 
-        val filteredOxygenServices = baseOxygenServices.filter { item ->
-          (item.nameEn ?: "").contains(keyword) || (item.nameMm
-            ?: "").contains(keyword) || (item.addressEn
-            ?: "").contains(keyword) || (item.addressMm ?: "").contains(keyword)
-        }
+        withContext(Dispatchers.IO) {
 
-        oxygenServiceLiveData.postSuccess(filteredOxygenServices)
+          val filteredOxygenServices = baseOxygenServices.filter { item ->
+            (item.nameEn ?: "").contains(keyword, ignoreCase = true) || (item.nameMm
+              ?: "").contains(keyword, ignoreCase = true) || (item.addressEn
+              ?: "").contains(keyword, ignoreCase = true) || (item.addressMm
+              ?: "").contains(keyword) || (item.townshipEn
+              ?: "").contains(keyword, ignoreCase = true) || (item.townshipMm ?: "").contains(
+              keyword,
+              ignoreCase = true
+            ) || (item.stateRegionEn ?: "").contains(
+              keyword,
+              ignoreCase = true
+            ) || (item.stateRegionMm ?: "").contains(keyword, ignoreCase = true)
+          }
+
+          withContext(Dispatchers.Main) {
+            oxygenServiceLiveData.postSuccess(filteredOxygenServices)
+          }
+        }
 
       }
 

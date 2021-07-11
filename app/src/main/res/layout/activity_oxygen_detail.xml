@@ -32,46 +32,94 @@
       android:padding="@dimen/space_normal">
 
       <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvLabelName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:text="@string/name"
+        android:textColor="@color/textLightSecondary"
+        android:textSize="@dimen/text_size_small"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+      <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_small"
         android:gravity="start"
         android:textColor="@color/textLightPrimary"
-        android:textSize="@dimen/text_size_large"
-        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="@dimen/text_size_normal"
+        app:layout_constraintTop_toBottomOf="@id/tvLabelName"
         tool:text="Name" />
+
+      <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvLabelFullAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:text="@string/address"
+        android:textColor="@color/textLightSecondary"
+        android:textSize="@dimen/text_size_small"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvName"
+        android:layout_marginTop="@dimen/space_normal"/>
 
       <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvFullAddress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/space_normal"
+        android:layout_marginTop="@dimen/space_small"
         android:textColor="@color/textLightPrimary"
         android:textSize="@dimen/text_size_normal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvName"
+        app:layout_constraintTop_toBottomOf="@id/tvLabelFullAddress"
         tool:text="Address" />
+
+      <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvLabelTownship"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:text="@string/township"
+        android:textColor="@color/textLightSecondary"
+        android:textSize="@dimen/text_size_small"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvFullAddress"
+        android:layout_marginTop="@dimen/space_normal"/>
 
       <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvTownship"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/space_normal"
+        android:layout_marginTop="@dimen/space_small"
         android:textColor="@color/textLightPrimary"
         android:textSize="@dimen/text_size_normal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvFullAddress"
+        app:layout_constraintTop_toBottomOf="@id/tvLabelTownship"
         tool:text="Township" />
+
+      <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvLabelStateOrRegion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:text="@string/state_or_region"
+        android:textColor="@color/textLightSecondary"
+        android:textSize="@dimen/text_size_small"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTownship"
+        android:layout_marginTop="@dimen/space_normal"/>
 
       <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvStateOrRegion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/space_normal"
+        android:layout_marginTop="@dimen/space_small"
         android:textColor="@color/textLightPrimary"
         android:textSize="@dimen/text_size_normal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvTownship"
+        app:layout_constraintTop_toBottomOf="@id/tvLabelStateOrRegion"
         tool:text="State Or Region" />
 
       <androidx.appcompat.widget.AppCompatTextView
