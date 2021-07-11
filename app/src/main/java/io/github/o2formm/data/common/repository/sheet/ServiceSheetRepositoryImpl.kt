@@ -39,4 +39,8 @@ class ServiceSheetRepositoryImpl constructor(
   override suspend fun getAllServiceTypeFromLocal(): List<ServiceType> {
     return serviceSheetCacheSource.getAllServicesType()
   }
+
+  override suspend fun getServicesByType(type: String): List<Service> {
+    return serviceSheetCacheSource.getServiceByType(type = type)
+  }
 }

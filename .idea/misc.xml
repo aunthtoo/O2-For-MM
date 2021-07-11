@@ -3,14 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/bg_edt.xml" value="0.15462962962962962" />
+        <entry key="app/src/main/res/drawable/ic_baseline_help_24.xml" value="0.15462962962962962" />
+        <entry key="app/src/main/res/drawable/white_cursor.xml" value="0.15462962962962962" />
+        <entry key="app/src/main/res/drawable/white_scrollbar.xml" value="0.15462962962962962" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.14361702127659576" />
+        <entry key="app/src/main/res/layout/activity_oxygen_detail.xml" value="0.14361702127659576" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.14361702127659576" />
         <entry key="app/src/main/res/layout/fragment_call_center.xml" value="0.14361702127659576" />
         <entry key="app/src/main/res/layout/fragment_office.xml" value="0.14361702127659576" />
         <entry key="app/src/main/res/layout/fragment_other.xml" value="0.14361702127659576" />
-        <entry key="app/src/main/res/layout/fragment_oxygen.xml" value="0.14361702127659576" />
+        <entry key="app/src/main/res/layout/fragment_oxygen.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_oxygen_plant.xml" value="0.14361702127659576" />
         <entry key="app/src/main/res/layout/fragment_teleconsultation.xml" value="0.14361702127659576" />
+        <entry key="app/src/main/res/layout/item_oxygen.xml" value="0.14361702127659576" />
+        <entry key="app/src/main/res/menu/main_menu.xml" value="0.25555555555555554" />
       </map>
     </option>
   </component>

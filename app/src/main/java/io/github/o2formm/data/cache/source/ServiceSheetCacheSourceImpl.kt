@@ -56,6 +56,11 @@ class ServiceSheetCacheSourceImpl constructor(private val database: O2ForMMDb) :
     database.servicesQueries.deleteAll()
   }
 
+  override suspend fun getServiceByType(type: String): List<Service> {
+    return database.servicesQueries.selectByService(service = type).executeAsList()
+      .map(ServicesTableMapper::map)
+  }
+
   override suspend fun insertOrReplaceServiceType(list: List<ServiceTypeRemoteEntity>) {
     database.transaction {
       list.forEach {

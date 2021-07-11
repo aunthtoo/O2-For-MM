@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tool="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:clickable="true"
+  android:focusable="true"
+  android:foreground="?attr/selectableItemBackground"
+  android:paddingTop="@dimen/space_small"
+  android:paddingBottom="@dimen/space_small">
+
+  <androidx.appcompat.widget.AppCompatTextView
+    android:id="@+id/tvName"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/space_normal"
+    android:layout_marginEnd="@dimen/space_normal"
+    android:gravity="start"
+    android:textColor="@color/textLightPrimary"
+    android:textSize="@dimen/text_size_normal"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    tool:text="Title" />
+
+  <androidx.appcompat.widget.AppCompatTextView
+    android:id="@+id/tvTownship"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/space_normal"
+    android:layout_marginTop="@dimen/space_small"
+    android:layout_marginEnd="@dimen/space_normal"
+    android:textColor="@color/textLightSecondary"
+    android:textSize="@dimen/text_size_small"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/tvName"
+    tool:text="Township" />
+
+  <View
+    android:id="@+id/divider"
+    android:layout_width="0dp"
+    android:layout_height="1dp"
+    android:layout_marginTop="@dimen/space_normal"
+    android:background="@color/transparentWhite"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/tvTownship" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

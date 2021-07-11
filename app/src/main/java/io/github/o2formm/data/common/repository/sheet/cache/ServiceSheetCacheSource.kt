@@ -16,6 +16,8 @@ interface ServiceSheetCacheSource {
 
   suspend fun deleteAllServices()
 
+  suspend fun getServiceByType(type: String): List<Service>
+
   suspend fun insertOrReplaceServiceType(list: List<ServiceTypeRemoteEntity>)
 
   suspend fun getAllServicesType(): List<ServiceType>

@@ -13,4 +13,6 @@ interface ServiceSheetRepository {
   suspend fun getAllServicesFromLocal(): List<Service>
 
   suspend fun getAllServiceTypeFromLocal(): List<ServiceType>
+
+  suspend fun getServicesByType(type: String): List<Service>
 }

@@ -1,5 +1,10 @@
 <resources>
-  <string name="app_name">O2 For MM</string>
+  <string name="app_name">Fight COVID</string>
 
   <string name="loading">Loading …</string>
+
+  <string name="search_by_name_address">Search by name, address</string>
+
+  <string name="filter_by_town">Filter by township</string>
+  <string name="about">About</string>
 </resources>
