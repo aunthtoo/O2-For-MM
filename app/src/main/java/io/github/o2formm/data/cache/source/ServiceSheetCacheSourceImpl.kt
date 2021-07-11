@@ -28,7 +28,7 @@ class ServiceSheetCacheSourceImpl constructor(private val database: O2ForMMDb) :
         )
 
         database.servicesQueries.insertOrReplace(
-          service = it.service,
+          service = it.service?.trim(),
           name = it.name,
           nameMM = it.nameMM,
           address = it.address,
@@ -59,7 +59,7 @@ class ServiceSheetCacheSourceImpl constructor(private val database: O2ForMMDb) :
   override suspend fun insertOrReplaceServiceType(list: List<ServiceTypeRemoteEntity>) {
     database.transaction {
       list.forEach {
-        database.servicesTypeQueries.insertOrReplace(type = it.type)
+        database.servicesTypeQueries.insertOrReplace(type = it.type.trim())
       }
     }
   }
