@@ -2,7 +2,8 @@ import org.jetbrains.kotlin.konan.properties.loadProperties
 
 plugins {
   id("com.android.application")
-  id("kotlin-android")
+  kotlin("android")
+  kotlin("kapt")
 }
 
 val localProperties = loadProperties(File(rootDir, "local.properties").path)
@@ -53,12 +54,12 @@ android {
   }
   compileOptions {
     isCoreLibraryDesugaringEnabled = true
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
   }
 
   kotlinOptions {
-    jvmTarget = "11"
+    jvmTarget = "1.8"
   }
 
   packagingOptions {
@@ -118,6 +119,8 @@ dependencies {
   //Coil
   implementation(Coil.coil)
 
+  moshi()
+
   //Test
   testImplementation(CommonLibs.junit)
   androidXTest()
@@ -127,6 +130,16 @@ dependencies {
   koinAndroid()
 
   //for google sheet
-  implementation("com.google.apis:google-api-services-sheets:v4-rev612-1.25.0")
+  implementation("com.github.theapache64:retrosheet:2.0.0-alpha05")
+  /*implementation("com.google.apis:google-api-services-sheets:v4-rev612-1.25.0")
   implementation("com.google.api-client:google-api-client-android:1.31.5")
+  implementation("com.google.api-client:google-api-client:1.31.5")*/
+
+  //networking
+  implementation(OkHttp.client)
+  implementation(OkHttp.logger)
+  testImplementation(OkHttp.mock_web_server)
+
+  implementation(Retrofit.core)
+  implementation(Retrofit.moshi_converter)
 }

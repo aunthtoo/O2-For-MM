@@ -221,7 +221,7 @@ object Kakao {
 }
 
 object Kotlin {
-  private const val version = "1.5.20"
+  private const val version = "1.4.20"
 
   const val stdblib_jdk = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$version"
   const val gradle_plugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$version"
@@ -261,7 +261,7 @@ object Monex {
 }
 
 object OkHttp {
-  private const val version = "4.8.1"
+  private const val version = "3.11.0"
 
   const val client = "com.squareup.okhttp3:okhttp:$version"
   const val logger = "com.squareup.okhttp3:logging-interceptor:$version"
@@ -269,7 +269,7 @@ object OkHttp {
 }
 
 object Retrofit {
-  private const val version = "2.9.0"
+  private const val version = "2.7.1"
 
   const val core = "com.squareup.retrofit2:retrofit:$version"
   const val moshi_converter = "com.squareup.retrofit2:converter-moshi:$version"

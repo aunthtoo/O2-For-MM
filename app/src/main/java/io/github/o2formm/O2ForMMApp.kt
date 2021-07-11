@@ -2,6 +2,7 @@ package io.github.o2formm
 
 import androidx.multidex.MultiDexApplication
 import io.github.o2formm.di.AppModule
+import io.github.o2formm.di.NetworkModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 import timber.log.Timber
@@ -21,7 +22,7 @@ class O2ForMMApp : MultiDexApplication() {
     //koin
     startKoin {
       androidContext(this@O2ForMMApp)
-      modules(listOf(AppModule))
+      modules(listOf(AppModule, NetworkModule))
     }
   }
 }
