@@ -8,3 +8,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "O2 For MM"
 include(":app")
+include(":androidextensions")
