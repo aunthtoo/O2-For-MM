@@ -4,6 +4,7 @@ plugins {
   id("com.android.application")
   kotlin("android")
   kotlin("kapt")
+  id("com.squareup.sqldelight")
 }
 
 val localProperties = loadProperties(File(rootDir, "local.properties").path)
@@ -64,6 +65,13 @@ android {
 
   packagingOptions {
     exclude("META-INF/DEPENDENCIES")
+  }
+}
+
+sqldelight {
+  database("O2ForMMDb") {
+    packageName = "io.github.o2formm"
+    //dialect = "sqlite:3.24"
   }
 }
 
@@ -142,4 +150,8 @@ dependencies {
 
   implementation(Retrofit.core)
   implementation(Retrofit.moshi_converter)
+
+  //Database
+  implementation(AndroidXSqlite.sqlite_ktx)
+  implementation(SqlDelight.android_driver)
 }

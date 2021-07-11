@@ -10,7 +10,7 @@ Created By Aunt Htoo Aung on 11/07/2021.
 
 val AppModule = module {
   //splash
-  single { SplashViewModel() }
+  single { SplashViewModel(get()) }
 
-  single { MainViewModel() }
+  single { MainViewModel(get()) }
 }

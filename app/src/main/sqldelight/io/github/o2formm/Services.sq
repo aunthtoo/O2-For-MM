@@ -1,0 +1,42 @@
+import kotlin.collections.List;
+
+CREATE TABLE ServicesTable(
+  service TEXT,
+  name TEXT,
+  nameMM TEXT,
+  address TEXT,
+  addressMM TEXT,
+  phones TEXT AS List<String>,
+  township TEXT,
+  townshipMM TEXT,
+  stateRegion TEXT,
+  stateRegionMM TEXT,
+  latLong TEXT,
+  remark TEXT,
+  url TEXT,
+  serviceIfOthers TEXT
+);
+
+insertOrReplace:
+INSERT OR REPLACE
+INTO ServicesTable
+VALUES(:service,:name,:nameMM,:address,:addressMM,:phones,:township,:townshipMM,:stateRegion,:stateRegionMM,:latLong,:remark,:url,:serviceIfOthers);
+
+selectAll:
+SELECT *
+FROM ServicesTable
+ORDER BY nameMM;
+
+selectByService:
+SELECT *
+FROM ServicesTable
+WHERE service=:service
+ORDER BY nameMM;
+
+search:
+SELECT *
+FROM ServicesTable;
+
+deleteAll:
+DELETE
+FROM ServicesTable;

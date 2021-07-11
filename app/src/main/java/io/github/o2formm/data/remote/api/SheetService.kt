@@ -1,7 +1,7 @@
 package io.github.o2formm.data.remote.api
 
 import com.github.theapache64.retrosheet.core.Read
-import io.github.o2formm.domain.sheet.model.Service
+import io.github.o2formm.data.remote.entity.ServiceRemoteEntity
 import retrofit2.http.GET
 
 /**
@@ -11,7 +11,6 @@ interface SheetService {
 
   @Read("SELECT *")
   @GET("Services")
-  suspend fun getServices(): List<Service>
-
+  suspend fun getServices(): List<ServiceRemoteEntity>
 
 }

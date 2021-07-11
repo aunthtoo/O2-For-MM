@@ -2,18 +2,18 @@ package io.github.o2formm.feature.splash
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import io.github.o2formm.domain.sheet.usecase.GetAllServiceSheetAndInsertToLocal
 import io.github.o2formm.helper.asyncviewstate.AsyncViewStateLiveData
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import timber.log.Timber
 
 /**
 Created By Aunt Htoo Aung on 11/07/2021.
  **/
-class SplashViewModel : ViewModel() {
+class SplashViewModel constructor(private val getAllServiceSheetAndInsertToLocal: GetAllServiceSheetAndInsertToLocal) :
+  ViewModel() {
 
-  val dataFromSheetLiveData = AsyncViewStateLiveData<String>()
+  val dataFromSheetLiveData = AsyncViewStateLiveData<Unit>()
 
   fun getAllDataFromSheet() {
     viewModelScope.launch {
@@ -22,9 +22,9 @@ class SplashViewModel : ViewModel() {
 
       val result = runCatching {
 
-        withContext(Dispatchers.IO) {
+        getAllServiceSheetAndInsertToLocal.execute(Unit)
 
-        }
+        dataFromSheetLiveData.postSuccess(Unit)
 
       }
 

@@ -3,8 +3,10 @@ package io.github.o2formm.di
 import com.github.theapache64.retrosheet.RetrosheetInterceptor
 import com.squareup.moshi.Moshi
 import io.github.o2formm.BuildConfig
+import io.github.o2formm.data.common.repository.sheet.remote.ServiceSheetRemoteSource
 import io.github.o2formm.data.remote.RemoteConstants
 import io.github.o2formm.data.remote.api.SheetService
+import io.github.o2formm.data.remote.source.ServiceSheetRemoteSourceImpl
 import okhttp3.OkHttpClient
 import org.koin.dsl.module
 import retrofit2.Retrofit
@@ -23,6 +25,9 @@ val NetworkModule = module {
   single { createMoshi() }
 
   single { createRetrofit(get(), get()) }
+
+  //service sheet
+  single<ServiceSheetRemoteSource> { ServiceSheetRemoteSourceImpl(get()) }
 
 }
 
