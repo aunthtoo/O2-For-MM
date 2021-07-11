@@ -26,6 +26,18 @@ android {
     }
 
     buildConfigField("String", "GOOGLE_API_KEY", localProperties.getProperty("GOOGLE_API_KEY"))
+    buildConfigField("String", "SPREAD_SHEET_ID", localProperties.getProperty("SPREAD_SHEET_ID"))
+    buildConfigField(
+      "String",
+      "SERVICES_SHEET_ID",
+      localProperties.getProperty("SERVICES_SHEET_ID")
+    )
+    buildConfigField(
+      "String",
+      "VALIDATION_SHEET_ID",
+      localProperties.getProperty("VALIDATION_SHEET_ID")
+    )
+    buildConfigField("String", "PCODE_SHEET_ID", localProperties.getProperty("PCODE_SHEET_ID"))
   }
 
   buildTypes {
@@ -44,8 +56,13 @@ android {
     sourceCompatibility = JavaVersion.VERSION_11
     targetCompatibility = JavaVersion.VERSION_11
   }
+
   kotlinOptions {
     jvmTarget = "11"
+  }
+
+  packagingOptions {
+    exclude("META-INF/DEPENDENCIES")
   }
 }
 
@@ -89,7 +106,6 @@ dependencies {
   //Constraint Layout
   implementation(AndroidXConstraintLayout.constraint_layout)
 
-
   //multi dex
   implementation(AndroidXMultiDex.multi_dex)
 
@@ -104,8 +120,6 @@ dependencies {
 
   //Test
   testImplementation(CommonLibs.junit)
-  mockito()
-  mockitoAndroid()
   androidXTest()
   androidXEspresso()
 
@@ -113,6 +127,6 @@ dependencies {
   koinAndroid()
 
   //for google sheet
-  implementation("com.google.apis:google-api-services-sheets:v4-rev516-1.23.0")
-  implementation("com.google.api-client:google-api-client-android:1.23.0")
+  implementation("com.google.apis:google-api-services-sheets:v4-rev612-1.25.0")
+  implementation("com.google.api-client:google-api-client-android:1.31.5")
 }

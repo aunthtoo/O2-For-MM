@@ -3,7 +3,9 @@ package io.github.o2formm.feature.splash
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import io.github.o2formm.helper.asyncviewstate.AsyncViewStateLiveData
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import timber.log.Timber
 
 /**
@@ -18,7 +20,13 @@ class SplashViewModel : ViewModel() {
 
       dataFromSheetLiveData.postLoading()
 
-      val result = runCatching { }
+      val result = runCatching {
+
+        withContext(Dispatchers.IO) {
+
+        }
+
+      }
 
       result.exceptionOrNull()?.let { e ->
         Timber.e(e)

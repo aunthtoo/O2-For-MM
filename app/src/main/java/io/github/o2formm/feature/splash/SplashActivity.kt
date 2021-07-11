@@ -1,7 +1,9 @@
 package io.github.o2formm.feature.splash
 
 import android.os.Bundle
+import io.github.o2formm.BuildConfig
 import io.github.o2formm.android.extensions.layoutInflater
+import io.github.o2formm.android.extensions.showShortToast
 import io.github.o2formm.core.BaseActivity
 import io.github.o2formm.databinding.ActivitySplashBinding
 
@@ -17,5 +19,6 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
 
+    showShortToast("${BuildConfig.GOOGLE_API_KEY}")
   }
 }
