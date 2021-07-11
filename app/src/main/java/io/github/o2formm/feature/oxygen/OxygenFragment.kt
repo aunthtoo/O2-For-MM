@@ -12,6 +12,7 @@ import io.github.o2formm.databinding.FragmentOxygenBinding
 import io.github.o2formm.feature.oxygen.detail.OxygenDetailActivity
 import io.github.o2formm.helper.asyncviewstate.AsyncViewState
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import timber.log.Timber
 
 /**
 Created By Aunt Htoo Aung on 11/07/2021.
@@ -25,8 +26,14 @@ class OxygenFragment : BaseFragment<FragmentOxygenBinding>() {
   private val oxygenListAdapter by lazy {
     OxygenListAdapter(onItemClick = { item ->
 
-      startActivity(OxygenDetailActivity.newIntent(requireContext()))
-      requireContext().showShortToast(item.nameMm)
+      Timber.e("${item.nameMm}")
+
+      startActivity(
+        OxygenDetailActivity.newIntent(
+          requireContext(),
+          item.serviceId
+        )
+      )
     })
   }
 

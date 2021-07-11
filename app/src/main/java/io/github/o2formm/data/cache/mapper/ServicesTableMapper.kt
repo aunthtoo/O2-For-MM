@@ -2,6 +2,7 @@ package io.github.o2formm.data.cache.mapper
 
 import io.github.o2formm.ServicesTable
 import io.github.o2formm.domain.sheet.model.Service
+import io.github.o2formm.domain.sheet.model.ServiceId
 
 /**
 Created By Aunt Htoo Aung on 11/07/2021.
@@ -10,6 +11,7 @@ object ServicesTableMapper {
 
   fun map(item: ServicesTable): Service {
     return Service(
+      id = ServiceId(id = item.id.toInt()),
       service = item.service,
       name = item.name,
       nameMM = item.nameMM,

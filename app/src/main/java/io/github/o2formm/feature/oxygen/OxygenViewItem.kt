@@ -1,9 +1,12 @@
 package io.github.o2formm.feature.oxygen
 
+import io.github.o2formm.domain.sheet.model.ServiceId
+
 /**
 Created By Aunt Htoo Aung on 11/07/2021.
  **/
 data class OxygenViewItem(
+  val serviceId: ServiceId,
   val nameEn: String?,
   val nameMm: String,
   val addressEn: String?,

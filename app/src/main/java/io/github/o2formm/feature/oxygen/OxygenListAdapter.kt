@@ -14,7 +14,7 @@ Created By Aunt Htoo Aung on 11/07/2021.
 class OxygenListAdapter constructor(private val onItemClick: (item: OxygenViewItem) -> Unit) :
   ListAdapter<OxygenViewItem, OxygenListAdapter.OxygenListViewHolder>(
     diffCallBackWith(
-      areItemTheSame = { item1, item2 -> item1 == item2 },
+      areItemTheSame = { item1, item2 -> item1.serviceId == item2.serviceId },
       areContentsTheSame = { item1, item2 -> item1 == item2 })
   ) {
 

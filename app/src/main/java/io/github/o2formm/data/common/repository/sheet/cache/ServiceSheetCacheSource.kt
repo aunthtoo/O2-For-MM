@@ -3,6 +3,7 @@ package io.github.o2formm.data.common.repository.sheet.cache
 import io.github.o2formm.data.remote.entity.ServiceRemoteEntity
 import io.github.o2formm.data.remote.entity.ServiceTypeRemoteEntity
 import io.github.o2formm.domain.sheet.model.Service
+import io.github.o2formm.domain.sheet.model.ServiceId
 import io.github.o2formm.domain.sheet.model.ServiceType
 
 /**
@@ -23,4 +24,6 @@ interface ServiceSheetCacheSource {
   suspend fun getAllServicesType(): List<ServiceType>
 
   suspend fun deleteAllServicesType()
+
+  suspend fun getServiceById(id: ServiceId): Service
 }

@@ -7,7 +7,9 @@ import io.github.o2formm.data.common.repository.sheet.cache.ServiceSheetCacheSou
 import io.github.o2formm.data.remote.entity.ServiceRemoteEntity
 import io.github.o2formm.data.remote.entity.ServiceTypeRemoteEntity
 import io.github.o2formm.domain.sheet.model.Service
+import io.github.o2formm.domain.sheet.model.ServiceId
 import io.github.o2formm.domain.sheet.model.ServiceType
+import io.github.o2formm.domain.sheet.model.ServiceTypeConstants
 
 /**
 Created By Aunt Htoo Aung on 11/07/2021.
@@ -18,7 +20,9 @@ class ServiceSheetCacheSourceImpl constructor(private val database: O2ForMMDb) :
   override suspend fun insertOrReplaceService(list: List<ServiceRemoteEntity>) {
     database.transaction {
 
-      list.forEach {
+      for (i in list.indices) {
+        val it = list[i]
+
         val phones = listOf(
           it.phone1 ?: "",
           it.phone2 ?: "",
@@ -28,6 +32,7 @@ class ServiceSheetCacheSourceImpl constructor(private val database: O2ForMMDb) :
         )
 
         database.servicesQueries.insertOrReplace(
+          id = (i + 1).toLong(),
           service = it.service?.trim(),
           name = it.name,
           nameMM = it.nameMM,
@@ -76,5 +81,11 @@ class ServiceSheetCacheSourceImpl constructor(private val database: O2ForMMDb) :
 
   override suspend fun deleteAllServicesType() {
     database.servicesTypeQueries.deleteAll()
+  }
+
+  override suspend fun getServiceById(id: ServiceId): Service {
+    return ServicesTableMapper.map(
+      database.servicesQueries.selectById(id = id.id.toLong()).executeAsOne()
+    )
   }
 }

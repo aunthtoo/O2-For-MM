@@ -1,6 +1,7 @@
 import kotlin.collections.List;
 
 CREATE TABLE ServicesTable(
+  id INTEGER PRIMARY KEY NOT NULL,
   service TEXT,
   name TEXT,
   nameMM TEXT,
@@ -20,7 +21,7 @@ CREATE TABLE ServicesTable(
 insertOrReplace:
 INSERT OR REPLACE
 INTO ServicesTable
-VALUES(:service,:name,:nameMM,:address,:addressMM,:phones,:township,:townshipMM,:stateRegion,:stateRegionMM,:latLong,:remark,:url,:serviceIfOthers);
+VALUES(:id,:service,:name,:nameMM,:address,:addressMM,:phones,:township,:townshipMM,:stateRegion,:stateRegionMM,:latLong,:remark,:url,:serviceIfOthers);
 
 selectAll:
 SELECT *
@@ -32,6 +33,16 @@ SELECT *
 FROM ServicesTable
 WHERE service=:service
 ORDER BY nameMM;
+
+selectById:
+SELECT *
+FROM ServicesTable
+WHERE id=:id;
+
+selectByTypeNameTownship:
+SELECT DISTINCT *
+FROM ServicesTable
+WHERE service=:service AND nameMM=:nameMm AND townshipMM=:townshipMm;
 
 search:
 SELECT *

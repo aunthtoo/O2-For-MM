@@ -28,6 +28,7 @@ class OxygenViewModel constructor(private val getServicesByType: GetServicesByTy
 
         val oxygenService = getServicesByType.execute(ServiceTypeConstants.OXYGEN).map { item ->
           OxygenViewItem(
+            serviceId = item.id,
             nameEn = item.name,
             nameMm = item.nameMM ?: "-",
             addressEn = item.address ?: "-",
@@ -69,10 +70,10 @@ class OxygenViewModel constructor(private val getServicesByType: GetServicesByTy
       } else {
 
         val filteredOxygenServices = baseOxygenServices.filter { item ->
-            (item.nameEn ?: "").contains(keyword) || (item.nameMm
-              ?: "").contains(keyword) || (item.addressEn
-              ?: "").contains(keyword) || (item.addressMm ?: "").contains(keyword)
-          }
+          (item.nameEn ?: "").contains(keyword) || (item.nameMm
+            ?: "").contains(keyword) || (item.addressEn
+            ?: "").contains(keyword) || (item.addressMm ?: "").contains(keyword)
+        }
 
         oxygenServiceLiveData.postSuccess(filteredOxygenServices)
 

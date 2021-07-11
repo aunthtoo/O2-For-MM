@@ -4,6 +4,7 @@ import io.github.o2formm.data.common.repository.sheet.cache.ServiceSheetCacheSou
 import io.github.o2formm.data.common.repository.sheet.remote.ServiceSheetRemoteSource
 import io.github.o2formm.data.remote.entity.ServiceRemoteEntity
 import io.github.o2formm.domain.sheet.model.Service
+import io.github.o2formm.domain.sheet.model.ServiceId
 import io.github.o2formm.domain.sheet.model.ServiceType
 import io.github.o2formm.domain.sheet.repository.ServiceSheetRepository
 
@@ -43,4 +44,9 @@ class ServiceSheetRepositoryImpl constructor(
   override suspend fun getServicesByType(type: String): List<Service> {
     return serviceSheetCacheSource.getServiceByType(type = type)
   }
+
+  override suspend fun getServiceById(id: ServiceId): Service {
+    return serviceSheetCacheSource.getServiceById(id)
+  }
+
 }
