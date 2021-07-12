@@ -1,11 +1,13 @@
 package io.github.o2formm.data.cache.source
 
 import io.github.o2formm.O2ForMMDb
+import io.github.o2formm.ServicesTable
 import io.github.o2formm.data.cache.mapper.ServicesTableMapper
 import io.github.o2formm.data.cache.mapper.ServicesTypeTableMapper
 import io.github.o2formm.data.common.repository.sheet.cache.ServiceSheetCacheSource
 import io.github.o2formm.data.remote.entity.ServiceRemoteEntity
 import io.github.o2formm.data.remote.entity.ServiceTypeRemoteEntity
+import io.github.o2formm.data.remote.entity.TownshipRemoteEntity
 import io.github.o2formm.domain.sheet.model.Service
 import io.github.o2formm.domain.sheet.model.ServiceId
 import io.github.o2formm.domain.sheet.model.ServiceType
@@ -87,5 +89,50 @@ class ServiceSheetCacheSourceImpl constructor(private val database: O2ForMMDb) :
     return ServicesTableMapper.map(
       database.servicesQueries.selectById(id = id.id.toLong()).executeAsOne()
     )
+  }
+
+  override suspend fun insertOrReplaceTownship(list: List<TownshipRemoteEntity>) {
+    database.transaction {
+      for (i in list.indices) {
+
+        val item = list[i]
+
+        database.townshipsQueries.insertOrReplace(
+          id = (i + 1).toLong(),
+          townNameMM = item.townnameMM,
+          townNameEN = item.townnameEN,
+          nameEN = item.nameEN,
+          stateRegionNameEN = item.stateRegionNameEN,
+          stateRegionNameMM = item.stateRegionNameMM,
+          districtPCode = item.districtPCode,
+          districtNameEN = item.districtNameEN,
+          districtNameMM = item.districtNameMM,
+          townshipPCode = item.townshipPCode,
+          townPCode = item.townPCode,
+          latitude = item.latitude,
+          longitude = item.longitude,
+          latlong = item.latLong,
+          source = item.source,
+          gadTownStatus = item.gadTownStatus,
+          mimuTownMappingStatus = item.mimuTownMappingStatus,
+          changeType = item.changeType,
+          remark = item.remark
+        )
+      }
+    }
+  }
+
+  override suspend fun getServicesByTownshipNameMMAndServiceType(
+    townshipNameMM: String,
+    serviceType: ServiceType
+  ): List<Service> {
+    return database.servicesQueries.selectByTownNameMMAndServiceType(
+      townshipNameMM = townshipNameMM,
+      service = serviceType.type
+    ).executeAsList().map(ServicesTableMapper::map)
+  }
+
+  override suspend fun deleteAllTownships() {
+    database.townshipsQueries.deleteAll()
   }
 }

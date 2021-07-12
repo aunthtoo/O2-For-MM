@@ -31,6 +31,12 @@ class ServiceSheetRepositoryImpl constructor(
     //delete all service type from local before inserting
     serviceSheetCacheSource.deleteAllServicesType()
     serviceSheetCacheSource.insertOrReplaceServiceType(servicesType)
+
+    //township
+    val townships = serviceSheetRemoteSource.getAllTownships()
+    //delete all townships data from local befor inserting
+    serviceSheetCacheSource.deleteAllTownships()
+    serviceSheetCacheSource.insertOrReplaceTownship(townships)
   }
 
   override suspend fun getAllServicesFromLocal(): List<Service> {
