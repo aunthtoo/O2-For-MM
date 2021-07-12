@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tool="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:background="@drawable/bg_dialog"
+  android:padding="@dimen/space_normal">
+
+  <androidx.appcompat.widget.AppCompatTextView
+    android:id="@+id/tvTitle"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textColor="@color/textLightPrimary"
+    android:textSize="@dimen/text_size_normal"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    tool:text="Title" />
+
+  <androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/rvPhones"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/space_normal"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/tvTitle"
+    tool:itemCount="6"
+    tool:listitem="@layout/item_phone" />
+</androidx.constraintlayout.widget.ConstraintLayout>
