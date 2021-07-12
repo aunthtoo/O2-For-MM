@@ -1,44 +1,157 @@
+import org.jetbrains.kotlin.konan.properties.loadProperties
+
 plugins {
   id("com.android.application")
-  id("kotlin-android")
+  kotlin("android")
+  kotlin("kapt")
+  id("com.squareup.sqldelight")
 }
 
+val localProperties = loadProperties(File(rootDir, "local.properties").path)
+
 android {
-  compileSdk = 30
-  buildToolsVersion = "30.0.3"
+  compileSdk = BuildConfig.compileSdk
 
   defaultConfig {
     applicationId = "io.github.o2formm"
-    minSdk = 19
-    targetSdk = 30
-    versionCode = 1
-    versionName = "1.0"
+    minSdk = BuildConfig.minSdk
+    targetSdk = BuildConfig.targetSdk
+    versionCode = BuildConfig.versionCode
+    versionName = BuildConfig.versionName
 
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+    multiDexEnabled = true
+
+    buildFeatures {
+      viewBinding = true
+    }
+
+    buildConfigField("String", "GOOGLE_API_KEY", localProperties.getProperty("GOOGLE_API_KEY"))
+    buildConfigField("String", "SPREAD_SHEET_ID", localProperties.getProperty("SPREAD_SHEET_ID"))
+    buildConfigField(
+      "String",
+      "SERVICES_SHEET_ID",
+      localProperties.getProperty("SERVICES_SHEET_ID")
+    )
+    buildConfigField(
+      "String",
+      "VALIDATION_SHEET_ID",
+      localProperties.getProperty("VALIDATION_SHEET_ID")
+    )
+    buildConfigField("String", "PCODE_SHEET_ID", localProperties.getProperty("PCODE_SHEET_ID"))
   }
 
   buildTypes {
-    release {
+
+    debug {
       isMinifyEnabled = false
+    }
+
+    release {
+      isMinifyEnabled = true
       proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
     }
   }
   compileOptions {
+    isCoreLibraryDesugaringEnabled = true
     sourceCompatibility = JavaVersion.VERSION_1_8
     targetCompatibility = JavaVersion.VERSION_1_8
   }
+
   kotlinOptions {
     jvmTarget = "1.8"
+  }
+
+  packagingOptions {
+    exclude("META-INF/DEPENDENCIES")
+  }
+}
+
+sqldelight {
+  database("O2ForMMDb") {
+    packageName = "io.github.o2formm"
+    //dialect = "sqlite:3.24"
   }
 }
 
 dependencies {
 
-  implementation("androidx.core:core-ktx:1.6.0")
-  implementation("androidx.appcompat:appcompat:1.3.0")
-  implementation("com.google.android.material:material:1.4.0")
-  implementation("androidx.constraintlayout:constraintlayout:2.0.4")
-  testImplementation("junit:junit:4.+")
-  androidTestImplementation("androidx.test.ext:junit:1.1.3")
-  androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
+  implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
+  implementation(project(":androidextensions"))
+
+  implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")
+
+  coreLibraryDesugaring(CommonLibs.desugar_lib)
+
+  implementation(Kotlin.stdblib_jdk)
+  implementation(KotlinCoroutine.android)
+
+  //AndroidX
+  implementation(AndroidXAppCompat.app_compat)
+  implementation(AndroidXCore.core_ktx)
+  implementation(AndroidXActivity.activity_ktx)
+  implementation(AndroidXFragment.fragment_ktx)
+  androidxFragment()
+  androidXArch()
+  implementation(AndroidXViewPager.view_pager_2)
+  implementation(AndroidXViewPager.view_pager)
+  implementation(AndroidXPreference.preference_ktx)
+  implementation(AndroidXPaging.common)
+  implementation(AndroidXPaging.runtime)
+  implementation(AndroidXLocalBroadcastManager.local_broadcast_manager)
+  implementation("androidx.exifinterface:exifinterface:1.3.2")
+
+  //Work Manager
+  implementation(AndroidXWork.work_runtime_ktx)
+  androidTestImplementation(AndroidXWork.work_testing)
+
+  //Material
+  implementation(Material.material)
+
+  //swipe refresh layout
+  implementation(AndroidXSwipeRefreshLayout.swipe_refresh_layout)
+
+  //Constraint Layout
+  implementation(AndroidXConstraintLayout.constraint_layout)
+
+  //multi dex
+  implementation(AndroidXMultiDex.multi_dex)
+
+  //timber
+  implementation(CommonLibs.timber)
+
+  //dexter
+  implementation(CommonLibs.dexter)
+
+  //Coil
+  implementation(Coil.coil)
+
+  moshi()
+
+  //Test
+  testImplementation(CommonLibs.junit)
+  androidXTest()
+  androidXEspresso()
+
+  //koin for di
+  koinAndroid()
+
+  //for google sheet
+  implementation("com.github.theapache64:retrosheet:2.0.0-alpha05")
+  /*implementation("com.google.apis:google-api-services-sheets:v4-rev612-1.25.0")
+  implementation("com.google.api-client:google-api-client-android:1.31.5")
+  implementation("com.google.api-client:google-api-client:1.31.5")*/
+
+  //networking
+  implementation(OkHttp.client)
+  implementation(OkHttp.logger)
+  testImplementation(OkHttp.mock_web_server)
+
+  implementation(Retrofit.core)
+  implementation(Retrofit.moshi_converter)
+
+  //Database
+  implementation(AndroidXSqlite.sqlite_ktx)
+  implementation(SqlDelight.android_driver)
 }
