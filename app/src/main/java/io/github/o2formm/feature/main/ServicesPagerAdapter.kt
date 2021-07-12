@@ -7,6 +7,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import io.github.o2formm.domain.sheet.model.ServiceTypeConstants
 import io.github.o2formm.feature.callcenter.CallCenterFragment
 import io.github.o2formm.feature.office.OfficeFragment
+import io.github.o2formm.feature.other.OtherFragment
 import io.github.o2formm.feature.oxygen.OxygenFragment
 import io.github.o2formm.feature.oxygenplant.OxygenPlantFragment
 import io.github.o2formm.feature.teleconsultation.TeleconsultationFragment
@@ -42,7 +43,7 @@ class ServicesPagerAdapter constructor(fragmentActivity: FragmentActivity) :
         OxygenPlantFragment.newInstance()
       }
       service.equals(ServiceTypeConstants.OTHER, ignoreCase = true) -> {
-        OxygenPlantFragment.newInstance()
+        OtherFragment.newInstance()
       }
       else -> {
         throw IllegalArgumentException("Invalid service argument")

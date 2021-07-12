@@ -1,5 +1,6 @@
 package io.github.o2formm.di
 
+import io.github.o2formm.feature.callcenter.CallCenterViewModel
 import io.github.o2formm.feature.filter.FilterByTownshipViewModel
 import io.github.o2formm.feature.main.MainViewModel
 import io.github.o2formm.feature.main.SharedViewModel
@@ -22,7 +23,7 @@ val AppModule = module {
   viewModel { MainViewModel(get()) }
 
   //oxygen
-  viewModel { OxygenViewModel(get(),get(),get()) }
+  viewModel { OxygenViewModel(get(), get(), get()) }
 
   //oxygen service detail
   viewModel { OxygenDetailViewModel(get()) }
@@ -31,9 +32,12 @@ val AppModule = module {
   viewModel { FilterByTownshipViewModel(get()) }
 
   //oxygen plant
-  viewModel { OxygenPlantViewModel(get()) }
+  viewModel { OxygenPlantViewModel(get(), get(), get()) }
 
   //shared viewmodel
   viewModel { SharedViewModel() }
+
+  //call center
+  viewModel { CallCenterViewModel(get()) }
 
 }

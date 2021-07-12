@@ -19,4 +19,6 @@
 
   <string name="filtered_by">Filtered by \"%s\"</string>
   <string name="no_data">No Data Available</string>
+
+  <string name="will_be_available_soon">Will be available soon</string>
 </resources>

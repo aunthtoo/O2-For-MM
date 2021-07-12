@@ -3,6 +3,7 @@ package io.github.o2formm.feature.filter
 import android.view.LayoutInflater
 import androidx.core.os.bundleOf
 import androidx.core.widget.addTextChangedListener
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
@@ -56,6 +57,10 @@ class FilterByTownshipFragment : BaseDialogFragment<FragmentTownshipFilterBindin
 
     viewModel.getAllTownship(townshipId)
     viewModel.townshipsLiveData.observe(viewLifecycleOwner, ::observeTownshipsLiveData)
+
+    viewModel.indexToScrollLiveData.observe(viewLifecycleOwner, Observer { indexToScroll ->
+      binding.rvTownships.scrollToPosition(indexToScroll)
+    })
   }
 
   private fun setUpRecyclerView() {

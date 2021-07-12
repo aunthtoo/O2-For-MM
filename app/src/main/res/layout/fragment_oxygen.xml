@@ -5,7 +5,6 @@
   android:layout_width="match_parent"
   android:layout_height="match_parent"
   android:animateLayoutChanges="true"
-  android:paddingTop="@dimen/space_normal"
   android:paddingBottom="@dimen/space_normal">
 
   <androidx.appcompat.widget.AppCompatTextView
@@ -13,6 +12,7 @@
     android:layout_width="0dp"
     android:layout_height="wrap_content"
     android:gravity="center"
+    android:layout_marginTop="@dimen/space_normal"
     android:textColor="@color/orange"
     android:textSize="@dimen/text_size_normal"
     android:visibility="gone"
@@ -25,6 +25,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:clickable="true"
+    android:layout_marginTop="@dimen/space_normal"
     android:focusable="true"
     android:paddingEnd="@dimen/space_normal"
     android:paddingStart="@dimen/space_normal"
