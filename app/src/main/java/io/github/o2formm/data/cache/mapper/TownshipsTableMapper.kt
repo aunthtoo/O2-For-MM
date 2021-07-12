@@ -12,8 +12,8 @@ object TownshipsTableMapper {
   fun map(item: TownshipTable): Township {
     return Township(
       id = TownshipId(id = item.id.toInt()),
-      townNameMM = item.townNameMM ?: "-",
-      townNameEN = item.townNameEN ?: "-",
+      townshipNameMM = item.townNameMM ?: "-",
+      townshipNameEN = item.townNameEN ?: "-",
       latitude = item.latitude ?: "0",
       longitude = item.longitude ?: "0"
     )

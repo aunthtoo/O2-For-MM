@@ -8,5 +8,6 @@ Created By Aunt Htoo Aung on 12/07/2021.
 data class TownshipViewItem(
   val id: TownshipId,
   val townshipNameMM: String,
-  val townshipNameEN: String
+  val townshipNameEN: String,
+  var isSelect: Boolean = false
 )

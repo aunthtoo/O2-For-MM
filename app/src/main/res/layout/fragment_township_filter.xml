@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
   android:layout_height="wrap_content"
-  android:layout_margin="@dimen/space_normal"
   android:background="@drawable/bg_dialog"
   android:padding="@dimen/space_normal">
 
@@ -15,17 +15,65 @@
     android:text="@string/filter_by_township"
     android:textColor="@color/textLightPrimary"
     android:textSize="@dimen/text_size_large"
-    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintEnd_toStartOf="@id/btnClose"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent" />
 
-  <androidx.recyclerview.widget.RecyclerView
-    android:id="@+id/rvTownships"
+  <androidx.appcompat.widget.AppCompatImageView
+    android:id="@+id/btnClose"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:src="@drawable/ic_baseline_close_24"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+  <com.google.android.material.textfield.TextInputLayout
+    android:id="@+id/textInputLayout"
     android:layout_width="0dp"
     android:layout_height="wrap_content"
     android:layout_marginTop="@dimen/space_normal"
+    android:background="@drawable/bg_edt"
+    android:padding="0dp"
+    app:boxBackgroundColor="@color/transparentWhite"
+    app:boxStrokeColor="@android:color/transparent"
+    app:boxStrokeWidth="0dp"
+    app:boxStrokeWidthFocused="0dp"
+    app:endIconMode="clear_text"
+    app:endIconTint="@color/white"
+    app:hintEnabled="false"
+    app:hintTextColor="@color/white"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@id/tvFilterByTownship" />
+    app:layout_constraintTop_toBottomOf="@id/tvFilterByTownship"
+    app:startIconDrawable="@drawable/ic_baseline_search_24"
+    app:startIconTint="@color/white">
+
+    <com.google.android.material.textfield.TextInputEditText
+      android:id="@+id/edtSearchTownship"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:background="@android:color/transparent"
+      android:hint="@string/enter_your_township"
+      android:inputType="text"
+      android:maxLines="1"
+      android:padding="@dimen/space_small"
+      android:textColor="@color/white"
+      android:textColorHint="@color/textLightSecondary"
+      android:textCursorDrawable="@drawable/white_cursor" />
+  </com.google.android.material.textfield.TextInputLayout>
+
+  <androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/rvTownships"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/space_normal"
+    android:scrollbarSize="2dp"
+    android:scrollbarThumbVertical="@drawable/white_scrollbar"
+    android:scrollbars="vertical"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/textInputLayout"
+    tools:itemCount="8"
+    tools:listitem="@layout/item_township" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -137,4 +137,10 @@ class ServiceSheetCacheSourceImpl constructor(private val database: O2ForMMDb) :
   override suspend fun getAllTownships(): List<Township> {
     return database.townshipsQueries.selectAll().executeAsList().map(TownshipsTableMapper::map)
   }
+
+  override suspend fun getTownshipById(townshipId: TownshipId): Township {
+    return TownshipsTableMapper.map(
+      database.townshipsQueries.selectById(townshipId.id.toLong()).executeAsOne()
+    )
+  }
 }

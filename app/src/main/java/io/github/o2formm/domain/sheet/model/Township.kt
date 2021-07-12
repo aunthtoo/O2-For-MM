@@ -5,8 +5,8 @@ Created By Aunt Htoo Aung on 12/07/2021.
  **/
 data class Township(
   val id: TownshipId,
-  val townNameMM: String,
-  val townNameEN: String,
+  val townshipNameMM: String,
+  val townshipNameEN: String,
   val latitude: String,
   val longitude: String
 )

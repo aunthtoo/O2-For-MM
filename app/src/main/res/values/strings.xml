@@ -15,4 +15,8 @@
   <string name="contact">Contact</string>
 
   <string name="filter_by_township">Filter By Township</string>
+  <string name="enter_your_township">Search Township</string>
+
+  <string name="filtered_by">Filtered by \"%s\"</string>
+  <string name="no_data">No Data Available</string>
 </resources>

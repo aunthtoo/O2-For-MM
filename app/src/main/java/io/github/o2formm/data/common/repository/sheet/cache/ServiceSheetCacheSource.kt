@@ -3,10 +3,7 @@ package io.github.o2formm.data.common.repository.sheet.cache
 import io.github.o2formm.data.remote.entity.ServiceRemoteEntity
 import io.github.o2formm.data.remote.entity.ServiceTypeRemoteEntity
 import io.github.o2formm.data.remote.entity.TownshipRemoteEntity
-import io.github.o2formm.domain.sheet.model.Service
-import io.github.o2formm.domain.sheet.model.ServiceId
-import io.github.o2formm.domain.sheet.model.ServiceType
-import io.github.o2formm.domain.sheet.model.Township
+import io.github.o2formm.domain.sheet.model.*
 
 /**
 Created By Aunt Htoo Aung on 11/07/2021.
@@ -39,4 +36,6 @@ interface ServiceSheetCacheSource {
     townshipNameMM: String,
     serviceType: ServiceType
   ): List<Service>
+
+  suspend fun getTownshipById(townshipId: TownshipId): Township
 }
