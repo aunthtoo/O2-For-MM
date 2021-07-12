@@ -26,6 +26,8 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
 
+    binding.tvVersion.text = BuildConfig.VERSION_NAME
+
     viewModel.getAllDataFromSheet()
 
     viewModel.dataFromSheetLiveData.observe(this, ::observeServicesSheet)

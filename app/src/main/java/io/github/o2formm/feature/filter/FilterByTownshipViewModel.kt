@@ -1,5 +1,6 @@
 package io.github.o2formm.feature.filter
 
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import io.github.o2formm.domain.sheet.model.TownshipId
@@ -17,6 +18,8 @@ class FilterByTownshipViewModel constructor(private val getAllTownships: GetAllT
   var selectedTownshipNameMM: String? = null
 
   val townshipsLiveData = AsyncViewStateLiveData<List<TownshipViewItem>>()
+
+  val indexToScrollLiveData = MutableLiveData<Int>()
 
   private val baseTownshipsList = mutableListOf<TownshipViewItem>()
   private val workingTownshipsList = mutableListOf<TownshipViewItem>()
@@ -46,9 +49,12 @@ class FilterByTownshipViewModel constructor(private val getAllTownships: GetAllT
 
         baseTownshipsList.addAll(townships)
 
+        var indexToScroll = 0
+
         for (i in baseTownshipsList.indices) {
 
           if (baseTownshipsList[i].id.id == townshipId.id) {
+            indexToScroll = i
             baseTownshipsList[i].isSelect = true
             break
           }
@@ -56,6 +62,7 @@ class FilterByTownshipViewModel constructor(private val getAllTownships: GetAllT
         workingTownshipsList.addAll(baseTownshipsList)
 
         townshipsLiveData.postSuccess(workingTownshipsList)
+        indexToScrollLiveData.postValue(indexToScroll)
       }
 
       result.exceptionOrNull()?.let { e ->

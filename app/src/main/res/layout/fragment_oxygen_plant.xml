@@ -4,13 +4,14 @@
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
-  android:paddingTop="@dimen/space_normal"
+  android:animateLayoutChanges="true"
   android:paddingBottom="@dimen/space_normal">
 
   <androidx.appcompat.widget.AppCompatTextView
     android:id="@+id/tvFilteredBy"
     android:layout_width="0dp"
     android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/space_normal"
     android:gravity="center"
     android:textColor="@color/orange"
     android:textSize="@dimen/text_size_normal"
@@ -23,6 +24,7 @@
     android:id="@+id/ivClearFilter"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/space_normal"
     android:clickable="true"
     android:focusable="true"
     android:foreground="?attr/selectableItemBackground"

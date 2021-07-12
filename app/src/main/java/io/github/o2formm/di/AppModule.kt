@@ -1,5 +1,6 @@
 package io.github.o2formm.di
 
+import io.github.o2formm.feature.callcenter.CallCenterViewModel
 import io.github.o2formm.feature.filter.FilterByTownshipViewModel
 import io.github.o2formm.feature.main.MainViewModel
 import io.github.o2formm.feature.main.SharedViewModel
@@ -35,5 +36,8 @@ val AppModule = module {
 
   //shared viewmodel
   viewModel { SharedViewModel() }
+
+  //call center
+  viewModel { CallCenterViewModel(get()) }
 
 }
