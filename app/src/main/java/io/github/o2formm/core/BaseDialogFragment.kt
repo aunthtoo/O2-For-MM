@@ -1,6 +1,5 @@
 package io.github.o2formm.core
 
-import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -25,7 +24,9 @@ abstract class BaseDialogFragment<VB : ViewBinding> : DialogFragment() {
   override fun onStart() {
     super.onStart()
     dialog?.window?.apply {
-      setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+      //requestFeature(Window.FEATURE_NO_TITLE)
+      setBackgroundDrawableResource(android.R.color.transparent)
+     setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
     }
   }
 
@@ -38,7 +39,6 @@ abstract class BaseDialogFragment<VB : ViewBinding> : DialogFragment() {
 
     dialog?.window?.apply {
       requestFeature(Window.FEATURE_NO_TITLE)
-      setBackgroundDrawableResource(android.R.color.transparent)
     }
     onBindView()
     return binding.root

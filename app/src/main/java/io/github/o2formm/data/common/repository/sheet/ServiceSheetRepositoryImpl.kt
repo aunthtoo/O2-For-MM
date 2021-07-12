@@ -20,8 +20,15 @@ class ServiceSheetRepositoryImpl constructor(
 
   override suspend fun getAllDataSheetAndInsertToLocal() {
     //service
-    val services = serviceSheetRemoteSource.getAllServices()
-      .filter { item -> (item.service ?: "").equals("testing", ignoreCase = true).not() }
+    var services = serviceSheetRemoteSource.getAllServices()
+      .filter { item ->
+        (item.service ?: "").equals("testing", ignoreCase = true).not()
+      }
+
+    services = services.filter { item ->
+      (item.nameMM.isNullOrEmpty() && item.addressMM.isNullOrEmpty() && item.townshipMM.isNullOrEmpty() && item.stateRegionMM.isNullOrEmpty() && item.phone1.isNullOrEmpty() && item.phone2.isNullOrEmpty() && item.phone3.isNullOrEmpty() && item.phone4.isNullOrEmpty() && item.phone5.isNullOrEmpty()).not()
+    }
+
     //delete all service from local before inserting
     serviceSheetCacheSource.deleteAllServices()
     serviceSheetCacheSource.insertOrReplaceService(services)
@@ -34,7 +41,13 @@ class ServiceSheetRepositoryImpl constructor(
     serviceSheetCacheSource.insertOrReplaceServiceType(servicesType)
 
     //township
-    val townships = serviceSheetRemoteSource.getAllTownships()
+    val townships =
+      serviceSheetRemoteSource.getAllTownships().filter {
+        it.townnameMM.isNullOrEmpty().not() && (it.townnameMM ?: "").equals(
+          "online",
+          ignoreCase = true
+        ).not()
+      }
     //delete all townships data from local befor inserting
     serviceSheetCacheSource.deleteAllTownships()
     serviceSheetCacheSource.insertOrReplaceTownship(townships)

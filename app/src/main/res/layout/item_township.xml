@@ -10,10 +10,21 @@
     android:id="@+id/tvTownship"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:textColor="@color/textLightPrimary"
+    android:textColor="@color/textLightSecondary"
     android:textSize="@dimen/text_size_normal"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"
     tool:text="Township Name" />
+
+  <androidx.appcompat.widget.AppCompatImageView
+    android:id="@+id/ivSelect"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:src="@drawable/ic_baseline_check_circle_24"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:tint="@color/orange"
+    android:visibility="gone"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
