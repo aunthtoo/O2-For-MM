@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+  <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <!-- Primary brand color. -->
+    <item name="colorPrimary">@color/black</item>
+    <item name="colorPrimaryVariant">@color/black</item>
+    <item name="colorOnPrimary">@color/white</item>
+
+    <!-- Status bar color. -->
+    <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+    <!-- Customize your theme   `here. -->
+
+    <item name="android:windowBackground">@color/darkPrimary</item>
+
+    <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
+  </style>
 
   <style name="TabLayoutTextAppearance" parent="TextAppearance.Design.Tab">
     <item name="textAllCaps">false</item>

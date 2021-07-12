@@ -44,6 +44,11 @@ SELECT DISTINCT *
 FROM ServicesTable
 WHERE service=:service AND nameMM=:nameMm AND townshipMM=:townshipMm;
 
+selectByTownNameMMAndServiceType:
+SELECT *
+FROM ServicesTable
+WHERE townshipMM=:townshipNameMM AND service=:service;
+
 search:
 SELECT *
 FROM ServicesTable;

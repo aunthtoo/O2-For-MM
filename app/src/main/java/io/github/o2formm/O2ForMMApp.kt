@@ -1,5 +1,6 @@
 package io.github.o2formm
 
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.multidex.MultiDexApplication
 import io.github.o2formm.di.*
 import org.koin.android.ext.koin.androidContext
@@ -13,6 +14,8 @@ class O2ForMMApp : MultiDexApplication() {
 
   override fun onCreate() {
     super.onCreate()
+
+    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
 
     if (BuildConfig.DEBUG) {
       Timber.plant(Timber.DebugTree())

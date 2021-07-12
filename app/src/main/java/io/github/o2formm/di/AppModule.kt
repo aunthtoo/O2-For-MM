@@ -1,5 +1,6 @@
 package io.github.o2formm.di
 
+import io.github.o2formm.feature.filter.FilterByTownshipViewModel
 import io.github.o2formm.feature.main.MainViewModel
 import io.github.o2formm.feature.oxygen.OxygenViewModel
 import io.github.o2formm.feature.oxygen.detail.OxygenDetailViewModel
@@ -23,4 +24,7 @@ val AppModule = module {
 
   //oxygen service detail
   viewModel { OxygenDetailViewModel(get()) }
+
+  //filter by township
+  viewModel { FilterByTownshipViewModel(get()) }
 }

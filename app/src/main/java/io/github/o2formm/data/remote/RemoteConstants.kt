@@ -33,6 +33,30 @@ object RemoteConstants {
 
   //service type sheet constants
   const val serviceTypeSheet = "Validation"
+
   //column
   const val services = "Services"
+
+  //township sheet constants
+  const val townshipSheet = "Pcodes"
+
+  //column
+  const val townNameMM = "Town_Name_MMR"
+  const val townNameEN = "Township_Name_Eng"
+  const val nameEN = "_Name_Eng"
+  const val stateRegionNameMM = "SR_Name_MMR"
+  const val stateRegionNameEN = "SR_Name_Eng"
+  const val districtPCode = "District/SAZ_Pcode"
+  const val districtNameEng = "District/SAZ_Name_Eng"
+  const val districtNameMM = "District/SAZ_Name_MMR"
+  const val townshipPCode = "Tsp_Pcode"
+  const val townPCode = "Town_Pcode"
+  const val latitude = "Latitude"
+  const val longitude = "Longitude"
+  const val source = "Source"
+  const val gadTownStatus = "GAD_Town_Status"
+  const val mimuTownMappingStatus = "MIMU_Town_Mapping_Status"
+  const val changeType = "Change_Type"
+  const val Remark = "Remark"
+
 }

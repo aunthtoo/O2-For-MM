@@ -1,0 +1,44 @@
+CREATE TABLE TownshipTable(
+id INTEGER PRIMARY KEY NOT NULL,
+townNameMM TEXT,
+townNameEN TEXT,
+nameEN TEXT,
+stateRegionNameMM TEXT,
+stateRegionNameEN TEXT,
+districtPCode TEXT,
+districtNameEN TEXT,
+districtNameMM TEXT,
+townshipPCode TEXT,
+townPCode TEXT,
+latitude TEXT,
+longitude TEXT,
+latlong TEXT,
+source TEXT,
+gadTownStatus TEXT,
+minuTownMappingStatus TEXT,
+changeType TEXT,
+remark TEXT
+);
+
+insertOrReplace:
+INSERT OR REPLACE
+INTO TownshipTable
+VALUES(:id,:townNameMM,:townNameEN,:nameEN,:stateRegionNameMM,:stateRegionNameEN,:districtPCode,:districtNameEN,:districtNameMM,:townshipPCode,:townPCode,:latitude,:longitude,:latlong,:source,:gadTownStatus,:mimuTownMappingStatus,:changeType,:remark);
+
+selectAll:
+SELECT *
+FROM TownshipTable;
+
+selectById:
+SELECT *
+FROM TownshipTable
+WHERE id=:id;
+
+selectByTownNameMM:
+SELECT *
+FROM TownshipTable
+WHERE townNameMM=:townNameMM;
+
+deleteAll:
+DELETE
+FROM TownshipTable;
