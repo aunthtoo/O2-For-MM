@@ -1,5 +1,6 @@
 package io.github.o2formm.feature.oxygen
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.Observer
@@ -87,6 +88,7 @@ class OxygenFragment : BaseFragment<FragmentOxygenBinding>() {
     }
   }
 
+  @SuppressLint("NotifyDataSetChanged")
   private fun observeOxygenServiceLiveData(viewState: AsyncViewState<List<OxygenViewItem>>) {
     when (viewState) {
       is AsyncViewState.Loading -> {

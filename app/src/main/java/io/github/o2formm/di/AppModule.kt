@@ -22,7 +22,7 @@ val AppModule = module {
   viewModel { MainViewModel(get()) }
 
   //oxygen
-  viewModel { OxygenViewModel(get(),get(),get()) }
+  viewModel { OxygenViewModel(get(), get(), get()) }
 
   //oxygen service detail
   viewModel { OxygenDetailViewModel(get()) }
@@ -31,7 +31,7 @@ val AppModule = module {
   viewModel { FilterByTownshipViewModel(get()) }
 
   //oxygen plant
-  viewModel { OxygenPlantViewModel(get()) }
+  viewModel { OxygenPlantViewModel(get(), get(), get()) }
 
   //shared viewmodel
   viewModel { SharedViewModel() }
