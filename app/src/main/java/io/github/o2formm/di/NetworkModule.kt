@@ -67,6 +67,28 @@ fun createRetrosheetInterceptor(): RetrosheetInterceptor {
     RemoteConstants.services
   )
 
+  builder.addSheet(
+    RemoteConstants.townshipSheet,// township sheet name
+    RemoteConstants.townNameMM,
+    RemoteConstants.townNameEN,
+    RemoteConstants.nameEN,
+    RemoteConstants.stateRegionNameMM,
+    RemoteConstants.stateRegionNameEN,
+    RemoteConstants.districtPCode,
+    RemoteConstants.districtNameEng,
+    RemoteConstants.districtNameMM,
+    RemoteConstants.townshipPCode,
+    RemoteConstants.townPCode,
+    RemoteConstants.latitude,
+    RemoteConstants.longitude,
+    RemoteConstants.latLong,
+    RemoteConstants.source,
+    RemoteConstants.gadTownStatus,
+    RemoteConstants.mimuTownMappingStatus,
+    RemoteConstants.changeType,
+    RemoteConstants.Remark
+  )
+
   return builder.build()
 }
 

@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/bg_circle.xml" value="0.15462962962962962" />
+        <entry key="app/src/main/res/drawable/bg_dialog.xml" value="0.14166666666666666" />
         <entry key="app/src/main/res/drawable/bg_edt.xml" value="0.15462962962962962" />
         <entry key="app/src/main/res/drawable/ic_baseline_help_24.xml" value="0.15462962962962962" />
         <entry key="app/src/main/res/drawable/white_cursor.xml" value="0.15462962962962962" />
@@ -17,8 +18,10 @@
         <entry key="app/src/main/res/layout/fragment_oxygen.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_oxygen_plant.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_teleconsultation.xml" value="0.14361702127659576" />
+        <entry key="app/src/main/res/layout/fragment_township_filter.xml" value="0.15070921985815602" />
         <entry key="app/src/main/res/layout/item_oxygen.xml" value="0.27640449438202247" />
         <entry key="app/src/main/res/layout/item_phone.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/item_township.xml" value="0.15070921985815602" />
         <entry key="app/src/main/res/menu/main_menu.xml" value="0.25555555555555554" />
       </map>
     </option>

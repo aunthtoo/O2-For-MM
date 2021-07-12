@@ -13,4 +13,6 @@
   <string name="township">Township</string>
   <string name="state_or_region">State Or Region</string>
   <string name="contact">Contact</string>
+
+  <string name="filter_by_township">Filter By Township</string>
 </resources>
