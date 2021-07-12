@@ -8,5 +8,6 @@ data class OxygenDetailViewItem(
   val fullAddress: String,
   val township: String,
   val stateRegion: String,
-  val phones: List<String>
+  val phones: List<String>,
+  val source: String
 )

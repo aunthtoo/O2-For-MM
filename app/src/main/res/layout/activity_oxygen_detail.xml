@@ -24,6 +24,9 @@
   <androidx.core.widget.NestedScrollView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:scrollbarSize="2dp"
+    android:scrollbarThumbVertical="@drawable/white_scrollbar"
+    android:scrollbars="vertical"
     app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -57,13 +60,13 @@
         android:id="@+id/tvLabelFullAddress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_normal"
         android:gravity="start"
         android:text="@string/address"
         android:textColor="@color/textLightSecondary"
         android:textSize="@dimen/text_size_small"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvName"
-        android:layout_marginTop="@dimen/space_normal"/>
+        app:layout_constraintTop_toBottomOf="@id/tvName" />
 
       <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvFullAddress"
@@ -80,13 +83,13 @@
         android:id="@+id/tvLabelTownship"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_normal"
         android:gravity="start"
         android:text="@string/township"
         android:textColor="@color/textLightSecondary"
         android:textSize="@dimen/text_size_small"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvFullAddress"
-        android:layout_marginTop="@dimen/space_normal"/>
+        app:layout_constraintTop_toBottomOf="@id/tvFullAddress" />
 
       <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvTownship"
@@ -103,13 +106,13 @@
         android:id="@+id/tvLabelStateOrRegion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_normal"
         android:gravity="start"
         android:text="@string/state_or_region"
         android:textColor="@color/textLightSecondary"
         android:textSize="@dimen/text_size_small"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvTownship"
-        android:layout_marginTop="@dimen/space_normal"/>
+        app:layout_constraintTop_toBottomOf="@id/tvTownship" />
 
       <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvStateOrRegion"
@@ -143,6 +146,30 @@
         app:layout_constraintTop_toBottomOf="@id/tvContact"
         tool:itemCount="5"
         tool:listitem="@layout/item_phone" />
+
+      <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvLabelSource"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_large"
+        android:text="@string/source"
+        android:textColor="@color/textLightSecondary"
+        android:textSize="@dimen/text_size_small"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rvPhones" />
+
+      <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvSource"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_small"
+        android:autoLink="all"
+        android:textColor="@color/textLightPrimary"
+        android:textColorLink="@color/orange"
+        android:textSize="@dimen/text_size_normal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvLabelSource"
+        tool:text="Source" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

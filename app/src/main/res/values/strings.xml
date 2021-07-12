@@ -21,4 +21,10 @@
   <string name="no_data">No Data Available</string>
 
   <string name="will_be_available_soon">Will be available soon</string>
+  <string name="source">Source</string>
+
+  <string name="add_or_modify_info">အချက်အလက်များ ဖြည့်စွက်/ပြင်ဆင်ရန်</string>
+  <string name="contact_mm_health">Contact MMHealth Page</string>
+  <string name="contact_dev">Contact Developer</string>
+  <string name="version">v%s</string>
 </resources>
