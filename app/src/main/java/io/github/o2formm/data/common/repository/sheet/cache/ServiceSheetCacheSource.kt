@@ -6,6 +6,7 @@ import io.github.o2formm.data.remote.entity.TownshipRemoteEntity
 import io.github.o2formm.domain.sheet.model.Service
 import io.github.o2formm.domain.sheet.model.ServiceId
 import io.github.o2formm.domain.sheet.model.ServiceType
+import io.github.o2formm.domain.sheet.model.Township
 
 /**
 Created By Aunt Htoo Aung on 11/07/2021.
@@ -29,6 +30,8 @@ interface ServiceSheetCacheSource {
   suspend fun getServiceById(id: ServiceId): Service
 
   suspend fun insertOrReplaceTownship(list: List<TownshipRemoteEntity>)
+
+  suspend fun getAllTownships(): List<Township>
 
   suspend fun deleteAllTownships()
 

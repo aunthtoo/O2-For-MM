@@ -6,6 +6,7 @@ import io.github.o2formm.data.remote.entity.ServiceRemoteEntity
 import io.github.o2formm.domain.sheet.model.Service
 import io.github.o2formm.domain.sheet.model.ServiceId
 import io.github.o2formm.domain.sheet.model.ServiceType
+import io.github.o2formm.domain.sheet.model.Township
 import io.github.o2formm.domain.sheet.repository.ServiceSheetRepository
 
 /**
@@ -55,4 +56,17 @@ class ServiceSheetRepositoryImpl constructor(
     return serviceSheetCacheSource.getServiceById(id)
   }
 
+  override suspend fun getServicesByTownshipNameMMAndServiceType(
+    serviceType: ServiceType,
+    townshipNameMM: String
+  ): List<Service> {
+    return serviceSheetCacheSource.getServicesByTownshipNameMMAndServiceType(
+      townshipNameMM = townshipNameMM,
+      serviceType = serviceType
+    )
+  }
+
+  override suspend fun getAllTownshipsFromLocal(): List<Township> {
+    return serviceSheetCacheSource.getAllTownships()
+  }
 }

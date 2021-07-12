@@ -25,6 +25,10 @@ INSERT OR REPLACE
 INTO TownshipTable
 VALUES(:id,:townNameMM,:townNameEN,:nameEN,:stateRegionNameMM,:stateRegionNameEN,:districtPCode,:districtNameEN,:districtNameMM,:townshipPCode,:townPCode,:latitude,:longitude,:latlong,:source,:gadTownStatus,:mimuTownMappingStatus,:changeType,:remark);
 
+selectAll:
+SELECT *
+FROM TownshipTable;
+
 selectById:
 SELECT *
 FROM TownshipTable

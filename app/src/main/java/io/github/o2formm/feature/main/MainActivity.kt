@@ -5,12 +5,15 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.appcompat.app.AlertDialog
 import com.google.android.material.tabs.TabLayoutMediator
 import io.github.o2formm.R
 import io.github.o2formm.android.extensions.layoutInflater
 import io.github.o2formm.android.extensions.showShortToast
 import io.github.o2formm.core.BaseActivity
 import io.github.o2formm.databinding.ActivityMainBinding
+import io.github.o2formm.databinding.FragmentTownshipFilterBinding
+import io.github.o2formm.feature.filter.FilterByTownshipFragment
 import io.github.o2formm.helper.asyncviewstate.AsyncViewState
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import timber.log.Timber
@@ -72,6 +75,10 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     return when (item.itemId) {
       R.id.actionFilterByTown -> {
 
+        val fragment = FilterByTownshipFragment.newInstance()
+
+        fragment.show(supportFragmentManager, FilterByTownshipFragment.TAG)
+
         true
       }
       R.id.actionAbout -> {
@@ -82,6 +89,22 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         super.onOptionsItemSelected(item)
       }
     }
+
+  }
+
+  //township filter
+  private fun showTownshipFilter() {
+    val dialog = AlertDialog.Builder(this).create()
+
+    val dialogViewBinding = FragmentTownshipFilterBinding.inflate(layoutInflater())
+
+    dialog.setView(dialogViewBinding.root)
+    dialog.window?.apply {
+      setBackgroundDrawableResource(android.R.color.transparent)
+    }
+
+    dialog.setCancelable(true)
+    dialog.show()
 
   }
 

@@ -4,14 +4,12 @@ import io.github.o2formm.O2ForMMDb
 import io.github.o2formm.ServicesTable
 import io.github.o2formm.data.cache.mapper.ServicesTableMapper
 import io.github.o2formm.data.cache.mapper.ServicesTypeTableMapper
+import io.github.o2formm.data.cache.mapper.TownshipsTableMapper
 import io.github.o2formm.data.common.repository.sheet.cache.ServiceSheetCacheSource
 import io.github.o2formm.data.remote.entity.ServiceRemoteEntity
 import io.github.o2formm.data.remote.entity.ServiceTypeRemoteEntity
 import io.github.o2formm.data.remote.entity.TownshipRemoteEntity
-import io.github.o2formm.domain.sheet.model.Service
-import io.github.o2formm.domain.sheet.model.ServiceId
-import io.github.o2formm.domain.sheet.model.ServiceType
-import io.github.o2formm.domain.sheet.model.ServiceTypeConstants
+import io.github.o2formm.domain.sheet.model.*
 
 /**
 Created By Aunt Htoo Aung on 11/07/2021.
@@ -134,5 +132,9 @@ class ServiceSheetCacheSourceImpl constructor(private val database: O2ForMMDb) :
 
   override suspend fun deleteAllTownships() {
     database.townshipsQueries.deleteAll()
+  }
+
+  override suspend fun getAllTownships(): List<Township> {
+    return database.townshipsQueries.selectAll().executeAsList().map(TownshipsTableMapper::map)
   }
 }
