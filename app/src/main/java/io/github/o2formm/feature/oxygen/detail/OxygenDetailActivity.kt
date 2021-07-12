@@ -77,8 +77,6 @@ class OxygenDetailActivity : BaseActivity<ActivityOxygenDetailBinding>() {
 
         val data = viewState.value
 
-        showShortToast("here ${data.name}")
-
        // supportActionBar?.title = data.name
 
         binding.apply {
