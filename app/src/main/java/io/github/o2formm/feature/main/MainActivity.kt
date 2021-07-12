@@ -50,6 +50,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
         val servicesList = viewState.value
         binding.viewPager.adapter = servicesPagerAdapter
+        binding.viewPager.offscreenPageLimit = servicesList.size
         TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
           tab.text = servicesList[position].type
         }.attach()
