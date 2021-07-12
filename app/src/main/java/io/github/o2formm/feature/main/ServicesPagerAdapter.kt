@@ -46,7 +46,7 @@ class ServicesPagerAdapter constructor(fragmentActivity: FragmentActivity) :
         OtherFragment.newInstance()
       }
       else -> {
-        throw IllegalArgumentException("Invalid service argument")
+        OxygenFragment.newInstance()
       }
     }
   }
