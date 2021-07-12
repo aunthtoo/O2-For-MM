@@ -22,4 +22,6 @@
   <color name="textLightSecondary">#b2ffffff</color>
 
   <color name="orange">#fc8403</color>
+
+  <color name="transparentOrange">#26FC8403</color>
 </resources>
