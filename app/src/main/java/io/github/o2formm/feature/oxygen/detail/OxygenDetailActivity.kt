@@ -77,13 +77,14 @@ class OxygenDetailActivity : BaseActivity<ActivityOxygenDetailBinding>() {
 
         val data = viewState.value
 
-       // supportActionBar?.title = data.name
+        // supportActionBar?.title = data.name
 
         binding.apply {
           tvName.text = data.name
           tvFullAddress.text = data.fullAddress
           tvTownship.text = data.township
           tvStateOrRegion.text = data.stateRegion
+          tvSource.text = data.source
         }
 
         phoneListAdapter.submitList(data.phones)

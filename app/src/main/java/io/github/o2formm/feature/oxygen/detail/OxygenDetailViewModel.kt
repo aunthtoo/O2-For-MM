@@ -29,7 +29,8 @@ class OxygenDetailViewModel constructor(private val getServiceById: GetServiceBy
             fullAddress = oxygenService.addressMM ?: "-",
             township = oxygenService.townshipMM ?: "",
             stateRegion = oxygenService.stateRegionMM ?: "-",
-            phones = oxygenService.phones.filter { it.isNotEmpty() }
+            phones = oxygenService.phones.filter { it.isNotEmpty() },
+            source = oxygenService.url ?: "-"
           )
         )
       }
