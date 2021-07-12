@@ -1,6 +1,7 @@
 package io.github.o2formm.feature.splash
 
 import android.os.Bundle
+import androidx.lifecycle.Observer
 import io.github.o2formm.BuildConfig
 import io.github.o2formm.android.extensions.layoutInflater
 import io.github.o2formm.android.extensions.setVisible
@@ -31,6 +32,10 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
     viewModel.getAllDataFromSheet()
 
     viewModel.dataFromSheetLiveData.observe(this, ::observeServicesSheet)
+
+    viewModel.showMessageToUserLiveData.observe(this, Observer { message ->
+      showShortToast(message)
+    })
 
   }
 
