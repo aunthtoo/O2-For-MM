@@ -1,6 +1,6 @@
 # O2 For MM
 
-![logo](/images/ic_launcher_oxygen.png)
+<img src="/images/ic_launcher_oxygen.png" alt="logo" width="200"/>
 
 Just Android Native version of [mmcovid web app](http://m.mmcovid.org/)
 
