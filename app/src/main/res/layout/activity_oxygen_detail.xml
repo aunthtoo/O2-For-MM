@@ -24,6 +24,9 @@
   <androidx.core.widget.NestedScrollView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:scrollbarSize="2dp"
+    android:scrollbarThumbVertical="@drawable/white_scrollbar"
+    android:scrollbars="vertical"
     app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -160,10 +163,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/space_small"
-        android:textColor="@color/textLightPrimary"
-        android:textSize="@dimen/text_size_normal"
         android:autoLink="all"
+        android:textColor="@color/textLightPrimary"
         android:textColorLink="@color/orange"
+        android:textSize="@dimen/text_size_normal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvLabelSource"
         tool:text="Source" />

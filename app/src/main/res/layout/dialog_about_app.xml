@@ -1,13 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
   android:layout_width="match_parent"
   android:layout_height="wrap_content"
   android:background="@drawable/bg_dialog"
   android:padding="@dimen/space_normal">
 
   <androidx.appcompat.widget.AppCompatTextView
+    android:id="@+id/tvAppName"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:id="@+id/tvAppName" />
+    android:text="@string/app_name"
+    android:textColor="@color/orange"
+    android:textSize="@dimen/text_size_large"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
 
+  <androidx.appcompat.widget.AppCompatImageView
+    android:id="@+id/ivLogo"
+    android:layout_width="80dp"
+    android:layout_height="80dp"
+    android:layout_marginTop="@dimen/space_small"
+    android:src="@drawable/ic_launcher"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/tvAppName" />
+
+  <androidx.appcompat.widget.AppCompatTextView
+    android:id="@+id/tvVersion"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/space_normal"
+    android:textColor="@color/textLightSecondary"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/ivLogo" />
+
+  <androidx.appcompat.widget.AppCompatButton
+    android:id="@+id/btnAddInfo"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/space_large"
+    android:background="@drawable/bg_btn"
+    android:padding="@dimen/space_small"
+    android:text="@string/add_or_modify_info"
+    android:textColor="@color/orange"
+    android:textSize="@dimen/text_size_small"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/tvVersion" />
+
+  <androidx.appcompat.widget.AppCompatButton
+    android:id="@+id/btnContactMMHealth"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/space_normal"
+    android:background="@drawable/bg_btn"
+    android:padding="@dimen/space_small"
+    android:text="@string/contact_mm_health"
+    android:textColor="@color/orange"
+    android:textAllCaps="false"
+    android:textSize="@dimen/text_size_small"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/btnAddInfo" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,6 +3,7 @@ package io.github.o2formm.feature.splash
 import android.os.Bundle
 import androidx.lifecycle.Observer
 import io.github.o2formm.BuildConfig
+import io.github.o2formm.R
 import io.github.o2formm.android.extensions.layoutInflater
 import io.github.o2formm.android.extensions.setVisible
 import io.github.o2formm.android.extensions.showShortToast
@@ -27,7 +28,7 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
 
-    binding.tvVersion.text = BuildConfig.VERSION_NAME
+    binding.tvVersion.text = getString(R.string.version, BuildConfig.VERSION_NAME)
 
     viewModel.getAllDataFromSheet()
 
