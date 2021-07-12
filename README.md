@@ -1,6 +1,6 @@
 # O2 For MM
 
-![logo](https://github.com/aunthtoo]/O2-For-MM/blob/master/ic_launcher_oxygen.png?raw=true)
+![logo](/images/ic_launcher_oxygen.png)
 
 Just Android Native version of [mmcovid web app](http://m.mmcovid.org/)
 
