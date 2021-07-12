@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AlertDialog
+import androidx.lifecycle.Observer
 import com.google.android.material.tabs.TabLayoutMediator
 import io.github.o2formm.R
 import io.github.o2formm.android.extensions.layoutInflater
@@ -13,6 +14,7 @@ import io.github.o2formm.android.extensions.showShortToast
 import io.github.o2formm.core.BaseActivity
 import io.github.o2formm.databinding.ActivityMainBinding
 import io.github.o2formm.databinding.FragmentTownshipFilterBinding
+import io.github.o2formm.domain.sheet.model.TownshipId
 import io.github.o2formm.feature.filter.FilterByTownshipFragment
 import io.github.o2formm.helper.asyncviewstate.AsyncViewState
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -30,6 +32,11 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
   private val viewModel: MainViewModel by viewModel()
 
+  private val sharedViewModel by viewModel<SharedViewModel>()
+
+  //default township id
+  private var selectedTownshipId: TownshipId = TownshipId(-1)
+
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setSupportActionBar(binding.toolbar)
@@ -37,6 +44,11 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     viewModel.getAllServices()
 
     viewModel.allServicesLiveData.observe(this, ::observeAllServices)
+
+    //observe shared viewmodel
+    sharedViewModel.selectTownshipLiveData.observe(this, Observer { townshipId ->
+      selectedTownshipId = townshipId
+    })
   }
 
   private fun observeAllServices(viewState: AsyncViewState<List<ServiceTypeViewItem>>) {
@@ -75,7 +87,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     return when (item.itemId) {
       R.id.actionFilterByTown -> {
 
-        val fragment = FilterByTownshipFragment.newInstance()
+        val fragment = FilterByTownshipFragment.newInstance(selectedTownshipId)
 
         fragment.show(supportFragmentManager, FilterByTownshipFragment.TAG)
 
@@ -89,22 +101,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         super.onOptionsItemSelected(item)
       }
     }
-
-  }
-
-  //township filter
-  private fun showTownshipFilter() {
-    val dialog = AlertDialog.Builder(this).create()
-
-    val dialogViewBinding = FragmentTownshipFilterBinding.inflate(layoutInflater())
-
-    dialog.setView(dialogViewBinding.root)
-    dialog.window?.apply {
-      setBackgroundDrawableResource(android.R.color.transparent)
-    }
-
-    dialog.setCancelable(true)
-    dialog.show()
 
   }
 

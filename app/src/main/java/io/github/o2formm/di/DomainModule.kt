@@ -19,4 +19,8 @@ val DomainModule = module {
   single { GetServiceById(get()) }
 
   single { GetAllTownships(get()) }
+
+  single { GetTownshipById(get()) }
+
+  single { GetServicesByTownshipIdAndServiceType(get()) }
 }

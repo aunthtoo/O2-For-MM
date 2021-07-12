@@ -46,23 +46,12 @@ class TownshipFilterListAdapter constructor(private val onItemClick: (position: 
     getItem(position)?.let { itemAtIndex ->
       holder.binding.apply {
         tvTownship.text = itemAtIndex.townshipNameMM
+        content.isSelected = itemAtIndex.isSelect
 
         if (itemAtIndex.isSelect) {
-          content.setBackgroundColor(
-            ContextCompat.getColor(
-              holder.context(),
-              R.color.transparentOrange
-            )
-          )
           ivSelect.setVisible(true)
           tvTownship.setTextColor(ContextCompat.getColor(holder.context(), R.color.orange))
         } else {
-          content.setBackgroundColor(
-            ContextCompat.getColor(
-              holder.context(),
-              android.R.color.transparent
-            )
-          )
           ivSelect.setVisible(false)
           tvTownship.setTextColor(
             ContextCompat.getColor(

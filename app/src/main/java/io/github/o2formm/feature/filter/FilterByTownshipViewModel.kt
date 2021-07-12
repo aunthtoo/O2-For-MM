@@ -21,7 +21,7 @@ class FilterByTownshipViewModel constructor(private val getAllTownships: GetAllT
   private val baseTownshipsList = mutableListOf<TownshipViewItem>()
   private val workingTownshipsList = mutableListOf<TownshipViewItem>()
 
-  fun getAllTownship() {
+  fun getAllTownship(townshipId: TownshipId) {
     viewModelScope.launch {
       townshipsLiveData.postLoading()
 
@@ -29,8 +29,8 @@ class FilterByTownshipViewModel constructor(private val getAllTownships: GetAllT
         val townships = getAllTownships.execute(Unit).map { item ->
           TownshipViewItem(
             id = item.id,
-            townshipNameMM = item.townNameMM,
-            townshipNameEN = item.townNameEN
+            townshipNameMM = item.townshipNameMM,
+            townshipNameEN = item.townshipNameEN
           )
         }.sortedBy { it.townshipNameMM }
 
@@ -40,13 +40,21 @@ class FilterByTownshipViewModel constructor(private val getAllTownships: GetAllT
           TownshipViewItem(
             id = TownshipId(-1),
             townshipNameMM = "All",
-            townshipNameEN = "All",
-            isSelect = true
+            townshipNameEN = "All"
           )
         baseTownshipsList.add(0, allViewItem)
 
         baseTownshipsList.addAll(townships)
+
+        for (i in baseTownshipsList.indices) {
+
+          if (baseTownshipsList[i].id.id == townshipId.id) {
+            baseTownshipsList[i].isSelect = true
+            break
+          }
+        }
         workingTownshipsList.addAll(baseTownshipsList)
+
         townshipsLiveData.postSuccess(workingTownshipsList)
       }
 

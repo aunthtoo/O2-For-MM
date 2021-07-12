@@ -3,10 +3,7 @@ package io.github.o2formm.data.common.repository.sheet
 import io.github.o2formm.data.common.repository.sheet.cache.ServiceSheetCacheSource
 import io.github.o2formm.data.common.repository.sheet.remote.ServiceSheetRemoteSource
 import io.github.o2formm.data.remote.entity.ServiceRemoteEntity
-import io.github.o2formm.domain.sheet.model.Service
-import io.github.o2formm.domain.sheet.model.ServiceId
-import io.github.o2formm.domain.sheet.model.ServiceType
-import io.github.o2formm.domain.sheet.model.Township
+import io.github.o2formm.domain.sheet.model.*
 import io.github.o2formm.domain.sheet.repository.ServiceSheetRepository
 
 /**
@@ -81,5 +78,9 @@ class ServiceSheetRepositoryImpl constructor(
 
   override suspend fun getAllTownshipsFromLocal(): List<Township> {
     return serviceSheetCacheSource.getAllTownships()
+  }
+
+  override suspend fun getTownshipById(townshipId: TownshipId): Township {
+    return serviceSheetCacheSource.getTownshipById(townshipId = townshipId)
   }
 }

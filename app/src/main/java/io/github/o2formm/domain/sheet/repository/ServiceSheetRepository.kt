@@ -1,9 +1,6 @@
 package io.github.o2formm.domain.sheet.repository
 
-import io.github.o2formm.domain.sheet.model.Service
-import io.github.o2formm.domain.sheet.model.ServiceId
-import io.github.o2formm.domain.sheet.model.ServiceType
-import io.github.o2formm.domain.sheet.model.Township
+import io.github.o2formm.domain.sheet.model.*
 
 /**
 Created By Aunt Htoo Aung on 11/07/2021.
@@ -26,4 +23,6 @@ interface ServiceSheetRepository {
   ): List<Service>
 
   suspend fun getAllTownshipsFromLocal(): List<Township>
+
+  suspend fun getTownshipById(townshipId: TownshipId): Township
 }
