@@ -11,7 +11,7 @@
   <string name="name">Name</string>
   <string name="address">Address</string>
   <string name="township">Township</string>
-  <string name="state_or_region">State Or Region</string>
+  <string name="state_or_region">State/Region</string>
   <string name="contact">Contact</string>
 
   <string name="filter_by_township">Filter By Township</string>
@@ -22,6 +22,7 @@
 
   <string name="will_be_available_soon">Will be available soon</string>
   <string name="source">Source</string>
+  <string name="remark">Remark</string>
 
   <string name="add_or_modify_info">အချက်အလက်များ ဖြည့်စွက်/ပြင်ဆင်ရန်</string>
   <string name="contact_mm_health">Contact MMHealth Page</string>
