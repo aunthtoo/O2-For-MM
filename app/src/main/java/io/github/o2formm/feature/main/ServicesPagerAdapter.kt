@@ -25,30 +25,31 @@ class ServicesPagerAdapter constructor(fragmentActivity: FragmentActivity) :
   override fun createFragment(position: Int): Fragment {
 
     val service = list[position].type.trim()
-    return when {
-      service.equals(ServiceTypeConstants.OXYGEN, ignoreCase = true) -> {
-        OxygenFragment.newInstance()
-      }
-      service.equals(ServiceTypeConstants.CALL_CENTER, ignoreCase = true) -> {
-        CallCenterFragment.newInstance()
-      }
+    return OxygenFragment.newInstance(serviceType = service)
+    /*when {
+        service.equals(ServiceTypeConstants.OXYGEN, ignoreCase = true) -> {
+          OxygenFragment.newInstance()
+        }
+        service.equals(ServiceTypeConstants.CALL_CENTER, ignoreCase = true) -> {
+          CallCenterFragment.newInstance()
+        }
 
-      service.equals(ServiceTypeConstants.TELECONSULTATION, ignoreCase = true) -> {
-        TeleconsultationFragment.newInstance()
-      }
-      service.equals(ServiceTypeConstants.OFFICE, ignoreCase = true) -> {
-        OfficeFragment.newInstance()
-      }
-      service.equals(ServiceTypeConstants.OXYGEN_PLANT, ignoreCase = true) -> {
-        OxygenPlantFragment.newInstance()
-      }
-      service.equals(ServiceTypeConstants.OTHER, ignoreCase = true) -> {
-        OtherFragment.newInstance()
-      }
-      else -> {
-        OxygenFragment.newInstance()
-      }
-    }
+        service.equals(ServiceTypeConstants.TELECONSULTATION, ignoreCase = true) -> {
+          TeleconsultationFragment.newInstance()
+        }
+        service.equals(ServiceTypeConstants.OFFICE, ignoreCase = true) -> {
+          OfficeFragment.newInstance()
+        }
+        service.equals(ServiceTypeConstants.OXYGEN_PLANT, ignoreCase = true) -> {
+          OxygenPlantFragment.newInstance()
+        }
+        service.equals(ServiceTypeConstants.OTHER, ignoreCase = true) -> {
+          OtherFragment.newInstance()
+        }
+        else -> {
+          OxygenFragment.newInstance()
+        }*/
+    //}
   }
 
   @SuppressLint("NotifyDataSetChanged")

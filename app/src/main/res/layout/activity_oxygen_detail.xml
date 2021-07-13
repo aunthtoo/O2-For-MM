@@ -73,7 +73,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/space_small"
+        android:autoLink="all"
         android:textColor="@color/textLightPrimary"
+        android:textColorLink="@color/orange"
         android:textSize="@dimen/text_size_normal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvLabelFullAddress"
@@ -129,7 +131,7 @@
         android:id="@+id/tvContact"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/space_large"
+        android:layout_marginTop="@dimen/space_normal"
         android:text="@string/contact"
         android:textColor="@color/textLightSecondary"
         android:textSize="@dimen/text_size_small"
@@ -171,6 +173,30 @@
         app:layout_constraintTop_toBottomOf="@id/tvLabelSource"
         tool:text="Source" />
 
+
+      <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvLabelRemark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_large"
+        android:text="@string/remark"
+        android:textColor="@color/textLightSecondary"
+        android:textSize="@dimen/text_size_small"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvSource" />
+
+      <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvRemark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_small"
+        android:autoLink="all"
+        android:textColor="@color/textLightPrimary"
+        android:textColorLink="@color/orange"
+        android:textSize="@dimen/text_size_normal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvLabelRemark"
+        tool:text="Source" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
