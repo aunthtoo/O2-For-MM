@@ -30,13 +30,13 @@ class OxygenViewModel constructor(
 
   private val baseOxygenServices = mutableListOf<OxygenViewItem>()
 
-  fun getAllOxygenServices() {
+  fun getAllOxygenServices(serviceType: String) {
     viewModelScope.launch {
       oxygenServiceLiveData.postLoading()
 
       val result = runCatching {
 
-        val oxygenService = getServicesByType.execute(ServiceTypeConstants.OXYGEN).map { item ->
+        val oxygenService = getServicesByType.execute(serviceType).map { item ->
           OxygenViewItem(
             serviceId = item.id,
             nameEn = item.name,
@@ -105,7 +105,7 @@ class OxygenViewModel constructor(
     }
   }
 
-  fun filterWithTownshipId(townshipId: TownshipId) {
+  fun filterWithTownshipId(townshipId: TownshipId,serviceType: String) {
     viewModelScope.launch {
 
       val result = kotlin.runCatching {
@@ -118,7 +118,7 @@ class OxygenViewModel constructor(
 
         val services = if (townshipId.id == -1) {
 
-          getServicesByType.execute(ServiceTypeConstants.OXYGEN).map { item ->
+          getServicesByType.execute(serviceType).map { item ->
             OxygenViewItem(
               serviceId = item.id,
               nameEn = item.name,
@@ -139,7 +139,7 @@ class OxygenViewModel constructor(
           getServicesByTownshipIdAndServiceType.execute(
             GetServicesByTownshipIdAndServiceType.Params(
               townshipId = townshipId,
-              ServiceType(type = ServiceTypeConstants.OXYGEN)
+              ServiceType(type = serviceType)
             )
           ).map { item ->
             OxygenViewItem(

@@ -23,13 +23,7 @@ class MainViewModel(private val getAllServicesType: GetAllServicesType) : ViewMo
       val result = runCatching {
 
         val servicesType = getAllServicesType.execute(Unit).map { item ->
-
-          val type = if (item.type.trim().equals(
-              ServiceTypeConstants.CALL_CENTER,
-              ignoreCase = true
-            )
-          ) "Call Center" else item.type
-          ServiceTypeViewItem(type = type)
+          ServiceTypeViewItem(type = item.type)
         }
 
         allServicesLiveData.postSuccess(servicesType)

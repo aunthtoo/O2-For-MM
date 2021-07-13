@@ -2,6 +2,7 @@ package io.github.o2formm.feature.oxygen
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
+import androidx.core.os.bundleOf
 import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -43,6 +44,10 @@ class OxygenFragment : BaseFragment<FragmentOxygenBinding>() {
 
   private val sharedViewModel: SharedViewModel by sharedViewModel()
 
+  private val serviceType: String by lazy {
+    requireArguments().getString(ARG_SERVICE_TYPE, "")
+  }
+
   override fun onBindView() {
     super.onBindView()
 
@@ -56,14 +61,14 @@ class OxygenFragment : BaseFragment<FragmentOxygenBinding>() {
       sharedViewModel.selectTownshipLiveData.postValue(TownshipId(-1))
     }
 
-    viewModel.getAllOxygenServices()
+    viewModel.getAllOxygenServices(serviceType)
 
     viewModel.oxygenServiceLiveData.observe(viewLifecycleOwner, ::observeOxygenServiceLiveData)
 
     //observe township filter
     sharedViewModel.selectTownshipLiveData.observe(viewLifecycleOwner, Observer { townshipId ->
 
-      viewModel.filterWithTownshipId(townshipId)
+      viewModel.filterWithTownshipId(townshipId,serviceType)
     })
 
     viewModel.oxygenServiceFilterByTownshipLiveData.observe(
@@ -113,6 +118,11 @@ class OxygenFragment : BaseFragment<FragmentOxygenBinding>() {
   }
 
   companion object {
-    fun newInstance() = OxygenFragment()
+
+    private const val ARG_SERVICE_TYPE = "service_type"
+
+    fun newInstance(serviceType: String) = OxygenFragment().apply {
+      arguments = bundleOf(ARG_SERVICE_TYPE to serviceType)
+    }
   }
 }
